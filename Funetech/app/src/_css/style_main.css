@@ -1,0 +1,134 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+}
+
+.ul {
+    padding: 0px  important;
+
+}
+.menu-principal{
+    width: 100.0%;
+    background-color: #252323;
+    height: 60px;
+
+}
+main{
+    margin: 0 auto;
+    width: 980px;
+    position: relative;
+
+}
+
+.logo{
+    float: left;
+    padding: -16px;
+    width: 70%;
+}
+p{
+    color: rgb(255,255,0);
+
+}
+.redes-sociais ul li {
+    margin-left: 25px;
+    display: inline-block;
+    float: none;
+    list-style: none;
+}
+
+.redes-sociais {
+    width: 30%;
+    float: right;
+}
+
+.header-2{
+    background-color: #ffffff;
+    width: 980px;
+    margin: 0 auto;
+    padding: 16px;
+
+}
+.menu-urls{
+    border-bottom: 3px solid #efefef;
+    height: 80px;
+}
+.menu ul li {
+    display: inline-block;
+    color: #8b8b8b;
+    margin-left: 15px;
+    height: 50px;
+
+}
+.menu ul li :hover{
+    border-bottom: 3px solid black;
+
+}
+.menu ul li a:hover{
+    color: grey;
+}
+
+.menu ul li a {
+    color: #8b8b8b;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+
+}
+
+.menu {
+    width: 70%;
+    float: left;
+
+}
+
+.busca {
+    text-align:center;
+    width: 30%;
+    float: right;
+
+}
+.busca input{
+    background-image: url('../img/icone-search.png');
+    background-repeat: no-repeat;
+    height: 36px;
+    padding: 12px;
+    width: 190px;
+    margin-top: 10px;
+    background-position: 96%;
+    border: 1px solid #d6d6d6;
+}
+.col-100 {
+    width: 100%;
+    float: left;
+    position: relative;
+}
+button.slick-prev{
+    font-size: 0px;
+    border: none;
+    width: 25px;
+    height: 51px;
+    z-index: 9;
+    position: absolute;
+    background-color: transparent;
+    top: 35%;
+    left: 14%;
+    background-image: url("../img/anterior.png");
+
+}
+button.slick-next{
+    font-size: 0px;
+    border: none;
+    width: 25px;
+    height: 51px;
+    z-index: 9;
+    position: absolute;
+    background-color: transparent;
+    top: 35%;
+    background-image: url("../img/proximo.png");
+    right:14%;
+}
+.slider-principal{
+    width: 100% important;
+}

@@ -1,0 +1,120 @@
+html,
+body,
+#home {
+  height: 100%;
+}
+.menu ul li {
+  display: inline-block;
+  color: #8b8b8b;
+  margin-left: 15px;
+  height: 50px;
+}
+.menu ul li :hover {
+  border-bottom: 3px solid black;
+}
+.menu ul li a:hover {
+  color: grey;
+}
+
+.menu ul li a {
+  color: #8b8b8b;
+  text-decoration: none;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.menu {
+  width: 70%;
+  float: left;
+}
+
+.busca {
+  text-align: center;
+  width: 30%;
+  float: right;
+}
+.busca input {
+  background-image: url("../img/icone-search.png");
+  background-repeat: no-repeat;
+  height: 36px;
+  padding: 12px;
+  width: 190px;
+  margin-top: 10px;
+  background-position: 96%;
+  border: 1px solid #d6d6d6;
+}
+.col-100 {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.menu-urls {
+  border-bottom: 3px solid #efefef;
+  height: 80px;
+  background-size: none;
+}
+body {
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 50px;
+}
+.header-2 {
+  background-color: #ffffff;
+  width: 980px;
+  margin: 0 auto;
+  padding: 16px;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  margin: 0px;
+}
+
+/* Quadro de preços do pacote de caixão
+*/
+.caixao {
+  background: #111;
+  color: #fff;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 4px;
+}
+
+/* Quadro de preços do pacote de Urnas
+*/
+.Urnas {
+  background: #111;
+  color: #fff;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 4px;
+}
+
+/* Quadro de preços do pacote de Capsulas Criogenicas
+*/
+.cc {
+  background: #111;
+  color: #fff;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 4px;
+}
+
+span {
+  color: #febe01;
+}
+
+p {
+  color: #b2b2b2;
+}
+
+a {
+  display: inline-block;
+  background: #febe01;
+  color: #332200;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+}

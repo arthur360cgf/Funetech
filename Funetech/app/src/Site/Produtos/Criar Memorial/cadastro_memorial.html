@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Cadastro do Memorial</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style_cadastro_memorial.css">
+    </head>
+
+    <body>
+
+        <!--BARRA DE NAVEGAÇÃO-->
+        <header class="menu-principal">
+                <div class="header-1">
+                    <!--coloque a logo aqui-->
+                    <div class="logo">
+                        
+                        <img class="logo-do-site" src="logo.png" alt="logo"/>
+                        <!--<p>Logo aparecerá aqui</p>-->
+                    </div>
+                </div>
+        
+        </header>
+
+        <div class="titulo">
+            <h2>Formulário de Cadastro do Memorial</h2>
+            <p>Aqui você pode digitar os dados para ser criado o memorial do seu ente querido.</p>
+        </div>
+
+        <!--CAMPOS DE CADASTRO-->
+        <div class="container">
+            <form action="/insercao-concluida" method="post">
+
+                <!--NOME-->
+                <label for="nome">Nome do Falecido</label>
+                <input type="text" id="nome" name="nome" class="input" placeholder="Digite aqui o nome..">
+
+                <!--IMAGEM-->
+                <label for="imagem-falecido">Link da imagem do Falecido</label><br>
+                <!--<input type="file" id="imagemFalecido" name="imagemFalecido"><br>-->
+                <input type="text" id="imagemFalecido" name="imagemFalecido" class="input" placeholder="Digite aqui o nome..">
+                
+                <!--LOCAL DE NASCIMENTO-->
+                <label for="local-nasc">Local de Nascimento</label>
+                <input type="text" id="localNasc" name="localNasc" class="input" placeholder="Digite aqui o local do nascimento..">
+
+                <!--DATA DE NASCIMENTO-->
+                <label for="data-nasc">Data de Nascimento</label><br>
+                <input type="date" id="dataNasc" class="data input" name="dataNasc"><br>
+
+                <!--LOCAL DE FALECIMENTO-->
+                <label for="local-fale">Local de Falecimento</label>
+                <input type="text" id="localFale" name="localFale" class="input" placeholder="Digite aqui o local do falecimento..">
+
+                <!--DATA DE FALECIMENTO-->
+                <label for="data-fale">Data de Falecimento</label><br>
+                <input type="date" id="dataFale" class="data input" name="dataFale"><br>
+                
+                <!--BREVE MENSAGEM-->
+                <label for="mensagem">Breve Mensagem</label>
+                <textarea id="subject" name="mensagem" class="input" placeholder="Digite aqui uma breve mensagem sobre o falecido.." style="height:200px"></textarea>
+
+                <!--BIOGRAFIA-->
+                <label for="biografia">Biografia</label>
+                <textarea id="subject" name="biografia" class="input" placeholder="Digite aqui a biografia do falecido.." style="height:200px"></textarea>
+
+                <!--VIDEO-->
+                <label for="video-de-homenagem">Link do Video de Homenagem</label>
+                <input type="url" id="videoDeHomenagem" name="videoDeHomenagem" class="input" placeholder="Digite aqui o link do video de homenagem do falecido..">
+                
+                <!--ENVIAR-->
+                <input type="submit" value="Enviar Memorial">
+            </form>
+        </div>
+
+        <footer class="rodape">
+            <h5>Site criado por: <a href="https://github.com/les-prp-uespi/engsw-tp-grupo-e">Grupo E</a></h5>
+        </footer>
+    </body>
+
+</html>
