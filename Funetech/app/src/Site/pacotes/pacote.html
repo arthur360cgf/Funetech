@@ -1,16 +1,16 @@
 <html>
   <head>
-    <title>Pacotes de Serviços</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../../_css/style_principal_full.css" />
     <link
       rel="stylesheet"
       type="text/css"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-    <title>Site Funetech-code</title>
+    <title>Pacotes Disponíveis - Funetech</title>
   </head>
   <body>
-    <main class="col-100 menu-urls">
+    <!-- <main class="col-100 menu-urls">
       <!-slide menu onde aparecerá as novidades dos pacotes->
       <div class="header-2">
         <div class="menu">
@@ -38,37 +38,62 @@
           <input placeholder="Pesquise Aqui" type="text" />
         </div>
       </div>
-    </main>
+    </main> -->
+    <!--BARRA DE NAVEGAÇÃO-->
+    <header class="menu-principal">
+      <div class="header-1">
+          <!--coloque a logo aqui-->
+          <div class="logo">
+              
+              <img class="logo-do-site" src="../../Imagens/logo.png" alt="logo"/>
+              <!--<p>Logo aparecerá aqui</p>-->
+          </div>
+      </div>
+    </header>
 
-    <h1>Pacotes de Serviços</h1>
-    <div class="pacote">
-      <div class="caixao">
+
+    <div class="titulo">
+      <h2>Pacotes Disponíveis</h2>
+      <p>Aqui você pode escolher um pacote de objetos para Comprar.</p>
+    </div>
+
+    <div class="pre-container">
+      <div class="container">
         <h2>Pacote de Caixão</h2>
         <h3>Caixão com QR + Pagina: <span>R$ 3999</span></h3>
         <p>
           Caixão modelo <span>luxo</span>, com medidas <span>certas</span> para
           o cliente.
         </p>
-        <a href="/">Comprar</a>
+        <!-- <a class="botao" href="/">Comprar</a> -->
+        <input type="button" class="botao" onclick="location.href='../../Site/Serviços/Pacote_Caixão/caixao.html';" value="Comprar"/>
+
       </div>
-      <div class="Urnas">
+      <div class="container">
         <h2>Pacote de Urna</h2>
         <h3>Urna com QR + Pagina: <span>R$ 5999</span></h3>
         <p>
           Urna modelo <span>luxo</span>, junto com o serviço de
           <span>cremação</span> incluso.
         </p>
-        <a href="/">Comprar</a>
+        <!-- <a class="botao" href="/">Comprar</a> -->
+        <input type="button" class="botao" onclick="location.href='../../Site/Serviços/Pacote_Urna/urna.html';" value="Comprar"/>
+
       </div>
-      <div class="cc">
+      <div class="container">
         <h2>Pacote de Capsulas criogênicas</h2>
         <h3>Capsulas + quadro com QR da Pagina: <span>R$ 19999</span></h3>
         <p>
           Capsula modelo <span>2077</span>, junto com o serviço de
           <span>criogenação</span> imediato.
         </p>
-        <a href="/">Comprar</a>
+        <!-- <a class="botao" href="/">Comprar</a> -->
+        <input type="button" class="botao" onclick="location.href='../../Site/Serviços/Pacote_Capsula/capsula.html';" value="Comprar"/>
       </div>
     </div>
+
+    <footer class="rodape">
+      <h5>Site criado por: <a href="https://github.com/les-prp-uespi/engsw-tp-grupo-e">Grupo E</a></h5>
+    </footer>
   </body>
 </html>
