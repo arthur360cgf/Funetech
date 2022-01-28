@@ -74,11 +74,27 @@ input[type=submit]:hover, .botao:hover{
     padding-top: 30px;
     padding-right: 30px;
     padding-bottom: 30px;
-    padding-left: 10px;
+    padding-left: 20px;
     color: white;
 }
 
 .rodape a{
     color: white;
     text-decoration: underline;
+}
+
+.criador{
+    margin: 0px 15px 15px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.criador a{
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+.imagem-criador{
+    width: 40px;
+    border-radius: 50%;
 }

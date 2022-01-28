@@ -16,6 +16,7 @@ const insercaoDB=require("../db/insercao_db");
 //PARA CONSEGUIR USAR CSS, IMAGENS, JS
 app.use(express.static(path.join(__dirname,'_css')));
 app.use(express.static(path.join(__dirname,'Imagens')));
+app.use(express.static(path.join(__dirname,'Imagens/criadores')));
 app.use(express.static(path.join(__dirname,'_js')));
 
 
