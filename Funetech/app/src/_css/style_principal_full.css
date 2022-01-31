@@ -33,6 +33,10 @@ body {
     margin: 20px;
 }
 
+span {
+    color: #00b637;
+}
+
 /* FAZER COM Q O "container" NAO SE EXPANDA HORIZONTALMENTE ACIMA DE 1050px */
 @media screen and (min-width: 1050px) {
     .container{
@@ -44,6 +48,17 @@ body {
         justify-content: center;
     }
     
+}
+
+input[type=text], input[type=tel], select, textarea, input[type=url] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
 }
 
 input[type=submit], button, .botao {
@@ -97,4 +112,14 @@ input[type=submit]:hover, .botao:hover{
 .imagem-criador{
     width: 40px;
     border-radius: 50%;
+}
+
+.imagem-produto{
+    float: right;
+    padding: 10px;
+    
+}
+
+.preco{
+    font-size: 40px;
 }
