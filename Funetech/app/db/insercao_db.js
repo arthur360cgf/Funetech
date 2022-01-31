@@ -1,6 +1,6 @@
 const db=require("./conexao_db");
 
-const insercaoDB = db.sequelize.define('memoriais',{
+const insercao_memorial = db.sequelize.define('memoriais',{
     nome: {
         type: db.Sequelize.STRING
     },
@@ -33,4 +33,14 @@ const insercaoDB = db.sequelize.define('memoriais',{
 //CRIAR TABELA
 //insercao.sync({force: true});
 
-module.exports = insercaoDB;
+// module.exports = insercaoDB;
+
+module.exports={
+    insercao_memorial: insercao_memorial
+
+    /*AQUI DEVE FICAR OS OUTROS consts PARA PARA FAZER A INSERÇÃO NO BD.
+    NO index.js, NA ROTA QUE RECEBE OS DADOS DIGITADOS, CADA UM DEVE SER
+    CHAMADO LÁ COMO POR EXEMPLO "insercaoDB.insercao_memorial.create(..."
+    */
+   
+}

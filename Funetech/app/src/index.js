@@ -7,11 +7,11 @@ const bodyParser=require("body-parser");
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 
-//PARA USAR O PATH
-const path=require("path");
-
 //LIGACAO COM O BD
 const insercaoDB=require("../db/insercao_db");
+
+//PARA USAR O PATH
+const path=require("path");
 
 //PARA CONSEGUIR USAR CSS, IMAGENS, JS
 app.use(express.static(path.join(__dirname,'_css')));
@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname,'Imagens')));
 app.use(express.static(path.join(__dirname,'Imagens/criadores')));
 app.use(express.static(path.join(__dirname,'_js')));
 
-
+/* --------------------------- ROTAS --------------------------- */
 //ROTA 1 - PÁGINA DE CADASTRO DO MEMORIAL
 app.use("/formulario-memorial",function(req,res,next){
     res.sendFile(__dirname+"/Site/Produtos/Criar Memorial/cadastro_memorial.html");
@@ -29,7 +29,7 @@ app.use("/formulario-memorial",function(req,res,next){
 //ROTA 2 - INSERCAO NO BD DO CADASTRO DO MEMORIAL
 app.post("/insercao-concluida", function(req,res){
     //console.log(req.body.localFale);
-    insercaoDB.create({
+    insercaoDB.insercao_memorial.create({
         nome: req.body.nome,
         imagem: req.body.imagemFalecido,
         local_nascimento: req.body.localNasc,
@@ -41,6 +41,9 @@ app.post("/insercao-concluida", function(req,res){
         link_video_de_homenagem: req.body.videoDeHomenagem
     }).then(function(){
         //res.send("valores inseridos com sucesso");
+        console.log("\n\nForam inseridos na tabela 'memorial' os seguintes dados: \n");
+        console.log(req.body);
+
         res.sendFile(__dirname+"/Site/Produtos/Criar Memorial/insercao_memorial_concluida.html");
     }).catch(function(erro){
         res.send("valores não foram inseridos <br>"+erro);
