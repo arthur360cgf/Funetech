@@ -20,13 +20,17 @@ app.use(express.static(path.join(__dirname,'Imagens/criadores')));
 app.use(express.static(path.join(__dirname,'_js')));
 
 /* --------------------------- ROTAS --------------------------- */
-//ROTA 1 - PÁGINA DE CADASTRO DO MEMORIAL
-app.use("/formulario-memorial",function(req,res,next){
+
+//_____________________
+//1 - ROTAS DO MEMORIAL
+
+//ROTA 1.1 - PÁGINA DE CADASTRO DO MEMORIAL
+app.use("/formulario-memorial",function(req,res){
     res.sendFile(__dirname+"/Site/Produtos/Criar Memorial/cadastro_memorial.html");
 })
 
 
-//ROTA 2 - INSERCAO NO BD DO CADASTRO DO MEMORIAL
+//ROTA 1.2 - INSERCAO NO BD DO CADASTRO DO MEMORIAL
 app.post("/insercao-concluida", function(req,res){
     //console.log(req.body.localFale);
     insercaoDB.insercao_memorial.create({
@@ -49,6 +53,42 @@ app.post("/insercao-concluida", function(req,res){
         res.send("valores não foram inseridos <br>"+erro);
     })
 })
+
+//_____________________
+//2 - ROTAS DOS PACOTES
+
+//ROTA 2.1 - PÁGINA PRINCIPAL DOS PACOTES
+app.use("/pacotes",function(req,res,next){
+    res.sendFile(__dirname+"/Site/pacotes/pacote.html");
+})
+
+//ROTA 2.2 - PÁGINA DE PACOTE DE CAIXAO
+
+
+//ROTA 2.3 - PÁGINA DE PACOTE DE URNA
+
+
+//ROTA 2.4 - PÁGINA DE PACOTE DE CAPSULA
+
+
+//ROTA 2.5 - INSERCAO NO BD DA COMPRA DO PACOTE
+app.post("/pedido-concluido", function(req,res){
+    //console.log(req.body.localFale);
+    insercaoDB.insercao_compras.create({
+        nome_comprador: req.body.nome_comprador,
+        telefone: req.body.telefone_comprador,
+        email: req.body.email_comprador,
+    }).then(function(){
+        //res.send("valores inseridos com sucesso");
+        console.log("\n\nForam inseridos na tabela 'compras' os seguintes dados: \n");
+        console.log(req.body);
+
+        res.sendFile(__dirname+"/Site/pacotes/pedido_pacote_concluido.html");
+    }).catch(function(erro){
+        res.send("valores não foram inseridos <br>"+erro);
+    })
+})
+
 
 app.listen(3000, () => {
     console.log("Online na porta 3000\n");
