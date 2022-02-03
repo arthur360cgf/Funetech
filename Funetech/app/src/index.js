@@ -78,6 +78,7 @@ app.post("/pedido-concluido", function(req,res){
     //console.log(req.body.localFale);
     insercaoDB.insercao_compras.create({
         nome_comprador: req.body.nome_comprador,
+        item_pedido: req.body.item_pedido,
         telefone: req.body.telefone_comprador,
         email: req.body.email_comprador,
     }).then(function(){

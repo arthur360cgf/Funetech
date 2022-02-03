@@ -37,6 +37,9 @@ const insercao_compras = db.sequelize.define('compras',{
     nome_comprador: {
         type: db.Sequelize.STRING
     },
+    item_pedido: {
+        type: db.Sequelize.STRING
+    },
     telefone: {
         type: db.Sequelize.STRING
     },
