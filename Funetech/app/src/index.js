@@ -66,7 +66,9 @@ app.use("/pacotes",function(req,res,next){
 
 
 //ROTA 2.3 - PÁGINA DE PACOTE DE URNA
-
+app.use("/pacote-urna",function(req,res,next){
+   res.sendFile(__dirname+"/Site/Serviços/Pacote_Urna/urna_novo.html");
+})
 
 //ROTA 2.4 - PÁGINA DE PACOTE DE CAPSULA
 
