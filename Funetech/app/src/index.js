@@ -63,7 +63,9 @@ app.use("/pacotes",function(req,res,next){
 })
 
 //ROTA 2.2 - PÁGINA DE PACOTE DE CAIXAO
-
+app.use("/pacote-caixao",function(req,res,next){
+    res.sendFile(__dirname+"/Site/Serviços/Pacote_Caixão/caixao_novo.html");
+})
 
 //ROTA 2.3 - PÁGINA DE PACOTE DE URNA
 app.use("/pacote-urna",function(req,res,next){
@@ -71,7 +73,9 @@ app.use("/pacote-urna",function(req,res,next){
 })
 
 //ROTA 2.4 - PÁGINA DE PACOTE DE CAPSULA
-
+app.use("/pacote-capsula",function(req,res,next){
+    res.sendFile(__dirname+"/Site/Serviços/Pacote_Capsula/capsula_novo.html");
+})
 
 //ROTA 2.5 - INSERCAO NO BD DA COMPRA DO PACOTE
 app.post("/pedido-concluido", function(req,res){
