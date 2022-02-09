@@ -30,7 +30,8 @@ delete from memoriais where id>=2;
 create table compras(
 id int primary key auto_increment,
 nome_comprador varchar(100),
-telefone varchar(14),
+item_pedido varchar(100),
+telefone varchar(16),
 email varchar(100),
 
 /* DO SEQUELIZE */
@@ -39,3 +40,23 @@ updatedAt DateTime
 );
 
 select * from compras;
+
+drop table compras;
+
+/* TABELA DAS PRODUTOS E SERVICOS DISPONIVEIS*/
+create table AVenda(
+id int primary key auto_increment,
+nome_item varchar(100),
+caminho_da_imagem varchar(100),
+preco float,
+quantidade_disponivel int,
+tipo varchar(9),
+
+/* DO SEQUELIZE */
+createdAt DateTime,
+updatedAt DateTime
+);
+
+select * from AVenda;
+
+drop table AVenda;

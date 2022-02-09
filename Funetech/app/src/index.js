@@ -2,6 +2,20 @@
 const express = require("express");
 const app=express();
 
+//CONFIGURACAO DO HANDLEBARS
+// const handlebars = require("express-handlebars");
+import { engine } from 'express-handlebars';
+
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+
+/*IMPORTANTE: POR ALGUM MOTIVO SE ABAIXO ESTIVER APENAS
+'./views' ELE TENTA PEGAR AS VIEWS EM 'Funetech/app/views'
+PRA FUNCIONAR ENTAO É NECESSARIO COLOCAR ABAIXO './src/views'
+POIS ASSIM ELE PEGARÁ DO LOCAL CERTO :'Funetech/app/src/views'*/
+
+app.set('views', './src/views');
+
 //CONFIGURACAO DO BODY PARSER
 const bodyParser=require("body-parser");
 app.use(bodyParser.urlencoded({extended: false}))
@@ -96,6 +110,16 @@ app.post("/pedido-concluido", function(req,res){
     })
 })
 
+//_________________________________________________________
+//3 - ROTAS DOS PRODUTOS E PACOTES DISPONIVEIS VINDOS DO BD
+app.get("/itens-a-venda", function(req, res) {
+    insercaoDB.insercao_compras.findAll().then(function(itens){
+        res.render('itens_a_venda',{title: "Itens a Venda - Funetech",
+                                    itens: itens.map(itens => itens.toJSON())});
+    })
+
+    
+})
 
 app.listen(3000, () => {
     console.log("Online na porta 3000\n");
