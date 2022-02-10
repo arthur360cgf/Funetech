@@ -24,6 +24,9 @@ app.use(bodyParser.json());
 //LIGACAO COM O BD
 const insercaoDB=require("../db/insercao_db");
 
+//PARA FAZER COMPARACOES ENTRE NUMEROS
+const { Op } = require("sequelize");
+
 //PARA USAR O PATH
 const path=require("path");
 
@@ -113,9 +116,18 @@ app.post("/pedido-concluido", function(req,res){
 //_________________________________________________________
 //3 - ROTAS DOS PRODUTOS E PACOTES DISPONIVEIS VINDOS DO BD
 app.get("/itens-a-venda", function(req, res) {
-    insercaoDB.insercao_compras.findAll().then(function(itens){
-        res.render('itens_a_venda',{title: "Itens a Venda - Funetech",
-                                    itens: itens.map(itens => itens.toJSON())});
+    //select * from AVendas where quantidade_disponivel>0;
+    insercaoDB.insercao_AVenda.findAll({
+        where: {
+            quantidade_disponivel:{
+                [Op.gt]: 0
+            }
+        }
+    }).then(function(itens){
+        res.render('itens_a_venda',
+        {title: "Itens a Venda - Funetech",
+         itens: itens.map(itens => itens.toJSON())}
+        );
     })
 
     

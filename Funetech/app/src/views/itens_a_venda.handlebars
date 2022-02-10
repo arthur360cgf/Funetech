@@ -1,10 +1,25 @@
 {{!-- testando 123</h5> --}}
 
-{{#each itens}}
-    <br>
-    Nome: {{nome_comprador}}<br>
-    Item pedido: {{item_pedido}}<br>
-    Telefone: {{telefone}}<br>
-    Email: {{email}}<br>
-    <hr>
-{{/each}}
+<div class="titulo">
+      <h2>Itens Disponíveis</h2>
+      <p>Aqui você pode ver os produtos e serviços disponíveis para compra.</p>
+</div>
+
+<div class="pre-container">
+
+    {{#each itens}}
+        <div class="container">
+            {{!-- Nome: {{nome_comprador}}<br> --}}
+            <h2>{{nome_item}}</h2>
+            <img class="imagem-produto" src={{caminho_da_imagem}} alt="imagem" width="200"/>
+            <br><span class="preco"><b>{{preco}}</b></span>
+            <p>
+                {{tipo}}, {{quantidade_disponivel}} disponíveis.
+            </p>
+
+            <br>
+            <button type="button" class="button">Adicionar ao carrinho</button>
+        </div>
+    {{/each}}
+
+</div>

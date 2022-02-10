@@ -72,7 +72,7 @@ input[type=submit], button, .botao {
     transition: 0.3s;
 }
 
-input[type=submit]:hover, .botao:hover{
+input[type=submit]:hover, .botao:hover, button:hover{
     background-color: #45a049;
 }
 
