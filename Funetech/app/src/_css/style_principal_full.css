@@ -127,6 +127,20 @@ input[type=submit]:hover, .botao:hover, button:hover{
 }
 
 /* PAGINA DAS VENDAS */
+
+
+@media screen and (min-width: 1830px) {
+    .itens{
+        width: 1790px;
+    }
+
+    .conteudo{
+    display: grid;
+    justify-content: center;
+    }
+    
+}
+
 .conteudo{
     margin: 0px 20px;
 }
