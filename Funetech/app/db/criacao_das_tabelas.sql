@@ -91,7 +91,7 @@ updatedAt DateTime
 
 -- INSERÇÃO DOS ITENS DISPONIVEIS
 -- PRODUTOS
-insert into produtos values (1,"Caixão de Luxo", "caixao_ouro.png", "R$ 2.999,00", 5, "2022-02-08 23:07:00", "2022-02-08 23:07:00");
+insert into produtos values (1,"Caixão de Luxo", "caixao-ouro.png", "R$ 2.999,00", 5, "2022-02-08 23:07:00", "2022-02-08 23:07:00");
 insert into produtos values (2,"Urna de Luxo", "urna.png", "R$ 4.999,00", 5, "2022-02-08 23:10:00", "2022-02-08 23:10:00");
 insert into produtos values (3,"Cápsula Criogênica", "capsula-criogenica2.png", "R$ 10.999,00", 5, "2022-02-08 23:11:00", "2022-02-08 23:11:00");
 

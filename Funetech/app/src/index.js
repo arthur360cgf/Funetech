@@ -116,19 +116,38 @@ app.post("/pedido-concluido", function(req,res){
 //_________________________________________________________
 //3 - ROTAS DOS PRODUTOS E PACOTES DISPONIVEIS VINDOS DO BD
 app.get("/itens-a-venda", function(req, res) {
-    //select * from AVendas where quantidade_disponivel>0;
-    insercaoDB.insercao_AVenda.findAll({
+    
+
+    //select * from produtos where quantidade_disponivel>0;
+    insercaoDB.tabela_produtos.findAll({
         where: {
             quantidade_disponivel:{
                 [Op.gt]: 0
             }
         }
-    }).then(function(itens){
-        res.render('itens_a_venda',
-        {title: "Itens a Venda - Funetech",
-         itens: itens.map(itens => itens.toJSON())}
-        );
+    }).then(function(produtos){
+        
+        //select * from servicos where quantidade_disponivel>0;
+        insercaoDB.tabela_servicos.findAll({
+            where: {
+                quantidade_disponivel:{
+                    [Op.gt]: 0
+                }
+            }
+        }).then(function(servicos){
+            //VAI RENDERIZAR OS ITENS DAS DUAS TABELAS
+            res.render('itens_a_venda',
+                {title: "Itens a Venda - Funetech",
+                 produtos: produtos.map(produtos => produtos.toJSON()),
+                 servicos: servicos.map(servicos => servicos.toJSON())
+                }
+            );
+        })
     })
+
+    
+
+    
 
     
 })
@@ -136,3 +155,4 @@ app.get("/itens-a-venda", function(req, res) {
 app.listen(3000, () => {
     console.log("Online na porta 3000\n");
 })
+

@@ -49,7 +49,26 @@ const insercao_compras = db.sequelize.define('compras',{
 })
 
 //DEFINIÇÃO DA TABELA "AVenda"
-const insercao_AVenda = db.sequelize.define('AVendas',{
+// const insercao_AVenda = db.sequelize.define('AVendas',{
+//     nome_item: {
+//         type: db.Sequelize.STRING
+//     },
+//     caminho_da_imagem: {
+//         type: db.Sequelize.STRING
+//     },
+//     preco: {
+//         type: db.Sequelize.STRING
+//     },
+//     quantidade_disponivel: {
+//         type: db.Sequelize.INTEGER
+//     },
+//     tipo: {
+//         type: db.Sequelize.STRING
+//     },
+// })
+
+//DEFINIÇÃO DA TABELA "produtos"
+const tabela_produtos = db.sequelize.define('produtos',{
     nome_item: {
         type: db.Sequelize.STRING
     },
@@ -61,10 +80,23 @@ const insercao_AVenda = db.sequelize.define('AVendas',{
     },
     quantidade_disponivel: {
         type: db.Sequelize.INTEGER
-    },
-    tipo: {
+    }
+})
+
+//DEFINIÇÃO DA TABELA "servicos"
+const tabela_servicos = db.sequelize.define('servicos',{
+    nome_item: {
         type: db.Sequelize.STRING
     },
+    caminho_da_imagem: {
+        type: db.Sequelize.STRING
+    },
+    preco: {
+        type: db.Sequelize.STRING
+    },
+    quantidade_disponivel: {
+        type: db.Sequelize.INTEGER
+    }
 })
 
 //CRIAR TABELA
@@ -75,7 +107,9 @@ const insercao_AVenda = db.sequelize.define('AVendas',{
 module.exports={
     insercao_memorial: insercao_memorial,
     insercao_compras: insercao_compras,
-    insercao_AVenda: insercao_AVenda
+    // insercao_AVenda: insercao_AVenda
+    tabela_produtos: tabela_produtos,
+    tabela_servicos: tabela_servicos
 
     /*AQUI DEVE FICAR OS OUTROS consts PARA PARA FAZER A INSERÇÃO NO BD.
     NO index.js, NA ROTA QUE RECEBE OS DADOS DIGITADOS, CADA UM DEVE SER
