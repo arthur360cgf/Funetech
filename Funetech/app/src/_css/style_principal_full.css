@@ -70,6 +70,7 @@ input[type=submit], button, .botao {
     cursor: pointer;
     /* text-decoration: none; */
     transition: 0.3s;
+    font-weight: bold;
 }
 
 input[type=submit]:hover, .botao:hover, button:hover{
@@ -122,4 +123,54 @@ input[type=submit]:hover, .botao:hover, button:hover{
 
 .preco{
     font-size: 40px;
+    font-weight: bold;
+}
+
+/* PAGINA DAS VENDAS */
+.conteudo{
+    margin: 0px 20px;
+}
+
+.divisor{
+    background-color: black;
+    height: 1px;
+    position: relative; 
+    top: -15px;
+}
+
+.itens{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-produto {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 20px;
+
+    height: 460px;
+    width: 300px;
+
+    /* box-shadow: 5px 10px 20px #888888;     */
+}
+
+.imagem-produto-loja img{
+    /* padding: 10px; */
+    height: 200px;
+    max-width: 100%;
+}
+
+.imagem-produto-loja{
+    display: flex;
+    justify-content: center;
+}
+
+.opcoes-loja{
+    margin-top: auto;
+    
+}
+
+.botao-carrinho{
+    width: 100%;
 }
