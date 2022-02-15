@@ -8,17 +8,26 @@
 <br>
 
 <div class="conteudo">
-    <h2>Produtos</h2>
+    <div class="subtitulo-itens">
+        <h2>Produtos</h2>
+
+        <div class="pesquisa">
+            {{!-- <p>Pesquisar:</p> --}}
+            <i class="fa-solid fa-magnifying-glass fa-2x lupa"></i>
+            <input type="text" id="pesquisar1" onkeyup="pesquisaProdutoseServicos('produtos','pesquisar1')" placeholder="Digite o nome de um produto...">
+        </div>
+    </div>
+
     <div class="divisor"></div>
 
-    <div class="itens">    
+    <div id="produtos" class="itens">
         {{#each produtos}}
             <div class="container-produto">
                 {{!-- Nome: {{nome_comprador}}<br> --}}
                 <div class="imagem-produto-loja">
                     <img src={{caminho_da_imagem}} alt="imagem"/>
                 </div>
-                
+
                 <div class="opcoes-loja">
                     <h2>{{nome_item}}</h2>
                     <br><span class="preco">{{preco}}</span>
@@ -31,16 +40,24 @@
                         Adicionar ao carrinho
                     </button>
                 </div>
-                
+                    
             </div>
         {{/each}}
     </div>
 
-    <br>
-    <h2>Serviços</h2>
+    <br><br>
+    <div class="subtitulo-itens">
+        <h2>Serviços</h2>
+
+        <div class="pesquisa">
+            {{!-- <p>Pesquisar:</p> --}}
+            <i class="fa-solid fa-magnifying-glass fa-2x lupa"></i>
+            <input type="text" id="pesquisar2" onkeyup="pesquisaProdutoseServicos('servicos','pesquisar2')" placeholder="Digite o nome de um serviço...">
+        </div>
+    </div>
     <div class="divisor"></div>
 
-    <div class="itens">
+    <div id="servicos" class="itens">
         {{#each servicos}}
             <div class="container-produto">
                 {{!-- Nome: {{nome_comprador}}<br> --}}
@@ -65,3 +82,5 @@
         {{/each}}
     </div>
 </div>
+
+<script src="main.js"></script>

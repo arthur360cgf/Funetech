@@ -188,3 +188,23 @@ input[type=submit]:hover, .botao:hover, button:hover{
 .botao-carrinho{
     width: 100%;
 }
+
+.subtitulo-itens{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.pesquisa{
+    display: flex;
+    width: 20rem;
+    margin-left: auto;
+    /* float: right; */
+}
+
+.lupa{
+    opacity: 0.5;
+    position: relative; 
+    top: 12px;
+    padding-right: 5px;
+}
