@@ -83,4 +83,80 @@
     </div>
 </div>
 
+{{!-------------------------CARRINHO-------------------------}}
+{{!-- BOTAO QUE ABRE O CARRINHO --}}
+<div id="botao-do-carrinho">
+    <button onclick="abrirTelaDoCarrinho()">
+        <i class="fa-solid fa-cart-shopping fa-3x"></i>
+        {{!-- <p style="margin-left: 5px; font-size: 15px;">Ver Carrinho</p> --}}
+    </button>
+</div>
+
+{{!-- CARRINHO EM SI --}}
+<div id="carrinho">
+
+    {{!-- TITULO --}}
+    <div class="titulo-carrinho">
+        <i class="fa-solid fa-cart-shopping fa-2x"></i>
+        <p><b>Seu carrinho</b></p>
+
+        <button class="sair-carrinho" onclick="fecharTelaDoCarrinho()">
+            <i class="fa-solid fa-angle-down fa-xl"></i>
+        </button>
+    </div>
+
+    {{!-- PRIMEIRA TELA: ITENS NO CARRINHO --}}
+    <div id="itens-carrinho">
+        <p>Seus itens:</p>
+        <div class="itens-no-carrinho">
+
+            {{!-- MSG QUE DEVE APARECER SE O CARRINHO ESTIVER VAZIO --}}
+            <div class="msg-carrinho-vazio">
+                <br>
+                <p><b>Você ainda não adicionou nada no carrinho!</b></p>
+                <img class="img-carrinho-vazio" src="undraw_empty_cart.svg" alt="carrinho-vazio"/>
+            </div>
+        </div>
+        {{!-- <p>Assim que escolher seus itens, clique no botão abaixo para continuar.</p> --}}
+        <div class="botoes-carrinho">
+            <button onclick="irTelaDadosDoCliente()">
+                <i class="fa-solid fa-angle-right fa-xl" style="padding-right:3px;"></i>
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    {{!-- SEGUNDA TELA: DADOS PARA PEDIDO --}}
+    <div id="dados-carrinho">
+        <p>Digite os seus dados para finalizar o pedido:</p>
+        <div class="dados">
+            <br>
+            {{!-- NOME DO CLIENTE --}}
+            <label for="nome-cliente">Nome</label>
+            <input type="text" id="nome-cliente" name="nome-cliente" class="input" placeholder="Digite o seu nome aqui...">
+
+            {{!-- EMAIL DO CLIENTE --}}
+            <label for="email-cliente">E-mail</label>
+            <input type="text" id="email-cliente" name="email-cliente" class="input" placeholder="Digite o seu email aqui...">
+
+            {{!-- TELEFONE DO CLIENTE --}}
+            <label for="telefone-cliente">Telefone</label>
+            <input type="text" id="telefone-cliente" name="telefone-cliente" class="input" placeholder="Digite o seu telefone aqui...">
+        </div>
+
+        <div class="botoes-carrinho">
+            <button class="botao2" onclick="irTelaItensDoCarrinho()">
+                <i class="fa-solid fa-angle-left fa-xl" style="padding-right:3px;"></i>
+                Voltar
+            </button>
+
+            <button>
+                <i class="fa-solid fa-check fa-xl" style="padding-right:3px;"></i>
+                Reservar Itens
+            </button>
+        </div>
+    </div>
+    
+</div>
+
 <script src="main.js"></script>

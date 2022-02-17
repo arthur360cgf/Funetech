@@ -45,3 +45,40 @@ function pesquisaProdutoseServicos(div_pesquisada,campo_de_pesquisa) {
         }
     }
 }
+
+//FUNCOES DO CARRINHO DE COMPRAS
+
+/* FUNCOES DE FRONT-END */
+function abrirTelaDoCarrinho(){
+    console.log("entrou no abrirTelaDoCarrinho\n");
+    document.getElementById("carrinho").style.display="block";
+    document.getElementById("botao-do-carrinho").style.display="none";
+
+    //PARA IR PARA A TELA DOS ITENS, CASO AO SAIR, TIVESSE NA TELA DOS DADOS DO CLIENTE
+    document.getElementById("dados-carrinho").style.display="none";
+    document.getElementById("itens-carrinho").style.display="block";
+}
+
+
+function fecharTelaDoCarrinho(){
+    console.log("entrou no fecharTelaDoCarrinho\n");
+    document.getElementById("carrinho").style.display="none";
+    document.getElementById("botao-do-carrinho").style.display="block";
+}
+
+function irTelaDadosDoCliente(){
+    console.log("entrou no irTelaDadosDoCliente\n");
+    document.getElementById("itens-carrinho").style.display="none";
+    document.getElementById("dados-carrinho").style.display="block";
+}
+
+function irTelaItensDoCarrinho(){
+    console.log("entrou no irTelaItensDoCarrinho\n");
+    document.getElementById("dados-carrinho").style.display="none";
+    document.getElementById("itens-carrinho").style.display="block";
+}
+
+/* FIM DAS FUNCOES DE FRONT-END */
+
+//----------------------------------------------------------------------------------//
+/* FUNCOES DE BACK-END */

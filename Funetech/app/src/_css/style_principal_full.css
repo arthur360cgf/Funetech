@@ -208,3 +208,127 @@ input[type=submit]:hover, .botao:hover, button:hover{
     top: 12px;
     padding-right: 5px;
 }
+
+/* BOTAO Q ABRE O CARRINHO */
+#botao-do-carrinho button{
+    background-color: #00b637;
+    /* padding: 15px;*/
+    margin: 10px;
+
+    width:fit-content;
+    border-radius: 50px;
+    border: 3px solid #00af34;
+
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+}
+
+.botao-do-carrinho button:hover{
+    background-color: #45a049;
+}
+
+
+/* CARRINHO EM SI*/
+.botao2 {
+    background-color: #f2f2f2;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    /* border: 2px solid #00af34; */
+    border-radius: 4px;
+    cursor: pointer;
+    /* text-decoration: none; */
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.botao2:hover{
+    background-color: #c8c8c8;
+}
+
+#carrinho{
+    display: none;
+
+    width: 92%;
+    background-color: white;
+
+    border: 2px solid #d6d6d6;
+    border-radius: 10px;
+    margin: 10px;
+
+    position: fixed;
+    float: right;
+    bottom: 10px;
+    right: 10px;
+}
+
+#carrinho p{
+    margin: 10px 10px;
+}
+
+@media screen and (min-width: 600px) {
+    #carrinho{
+        width: 35rem;
+    }
+}
+
+.titulo-carrinho{
+    display: flex;
+    background-color: #f2f2f2;
+    font-size: 20px;
+    /* justify-content: center; */
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.titulo-carrinho i{
+    /* position: relative;
+    top: 9px; */
+    padding: 3px 9px;
+}
+
+.sair-carrinho{
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    color: black;
+}
+
+.sair-carrinho:hover{
+    background-color: #c8c8c8;
+}
+
+.botoes-carrinho{
+    background-color: #f2f2f2;
+    /* margin-left: auto; */
+    padding: 20px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    border-radius: 0 0 10px 10px;
+}
+
+.botoes-carrinho button{
+    margin: 0 5px;
+}
+
+.msg-carrinho-vazio{
+    text-align: center;
+}
+
+.img-carrinho-vazio{
+    width: 15rem;
+    height: 15rem;
+    margin-bottom: 20px;
+}
+
+#dados-carrinho{
+    display: none;
+}
+
+.dados{
+    margin: 10px;
+}
