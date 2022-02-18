@@ -77,7 +77,22 @@ function irTelaItensDoCarrinho(){
     document.getElementById("dados-carrinho").style.display="none";
     document.getElementById("itens-carrinho").style.display="block";
 }
+function verDetalhes(){
+    console.log("entrou no verDetalhes\n");
+    document.getElementById("detalhes").style.display="block";
+    document.getElementById("botao-detalhes").style.display="none";
+    
+    //PARA IR PARA A TELA DOS ITENS, CASO AO SAIR, TIVESSE NA TELA DOS DADOS DO CLIENTE
+    //document.getElementById("dados-carrinho").style.display="none";
+    //document.getElementById("itens-carrinho").style.display="block";
+}
 
+
+function fecharDetalhes(){
+    console.log("entrou no fecharDetalhes\n");
+    document.getElementById("detalhes").style.display="none";
+    document.getElementById("botao-detalhes").style.display="block";
+}
 /* FIM DAS FUNCOES DE FRONT-END */
 
 //----------------------------------------------------------------------------------//
