@@ -269,7 +269,7 @@ input[type=submit]:hover, .botao:hover, button:hover{
 
 @media screen and (min-width: 600px) {
     #carrinho{
-        width: 35rem;
+        width: 40rem;
     }
 }
 
@@ -324,6 +324,81 @@ input[type=submit]:hover, .botao:hover, button:hover{
     height: 15rem;
     margin-bottom: 20px;
 }
+
+.todos-os-itens{
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    margin: 10px;
+}
+
+.cada-item2{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    /* flex-wrap: wrap; */
+    margin: 10px;
+    height: 4rem;
+
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+
+#quantidade-item{
+    width: 3rem;
+    height: 2.5rem;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+   opacity: 1;
+   height: 1.5rem;
+
+}
+
+.titulo-itens{
+    display: flex;
+    justify-content: space-evenly;
+    /* border-bottom: 1px solid #ccc; */
+}
+
+.item-individual{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.nome-item{
+    width: 3rem;
+}
+
+/* table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 96%;
+    margin: 5px 10px;
+} */
+
+
+
+/* td, th {
+    border-collapse: collapse;
+    border: 1px solid #dddddd;
+    border-left: 0;
+    border-right: 0;
+    text-align: left;
+    padding: 5px 0;
+    /* width: 100%; */
+    /* text-align: center; */
+    
+/* }  */
+  
+/* tr:nth-child(even) {
+    background-color: #dddddd;
+} */
 
 #dados-carrinho{
     display: none;

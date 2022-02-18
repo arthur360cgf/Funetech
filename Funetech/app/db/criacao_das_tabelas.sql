@@ -5,7 +5,7 @@ use funetech;
 create table memoriais(
 id int primary key auto_increment,
 nome varchar(100),
-imagem varchar(100),
+imagem varchar(1500),
 local_nascimento varchar(100),
 data_nascimento Date,
 local_falecimento varchar(100),
@@ -68,7 +68,7 @@ create table produtos(
 id int primary key auto_increment,
 nome_item varchar(100),
 caminho_da_imagem varchar(100),
-preco varchar(20),
+preco float,
 quantidade_disponivel int,
 
 /* DO SEQUELIZE */
@@ -81,7 +81,7 @@ create table servicos(
 id int primary key auto_increment,
 nome_item varchar(100),
 caminho_da_imagem varchar(100),
-preco varchar(20),
+preco float,
 quantidade_disponivel int,
 
 /* DO SEQUELIZE */
@@ -91,18 +91,22 @@ updatedAt DateTime
 
 -- INSERÇÃO DOS ITENS DISPONIVEIS
 -- PRODUTOS
-insert into produtos values (1,"Caixão de Luxo", "caixao-ouro.png", "R$ 2.999,00", 5, "2022-02-08 23:07:00", "2022-02-08 23:07:00");
-insert into produtos values (2,"Urna de Luxo", "urna.png", "R$ 4.999,00", 5, "2022-02-08 23:10:00", "2022-02-08 23:10:00");
-insert into produtos values (3,"Cápsula Criogênica", "capsula-criogenica2.png", "R$ 10.999,00", 5, "2022-02-08 23:11:00", "2022-02-08 23:11:00");
+insert into produtos values (1,"Caixão de Luxo", "caixao-ouro.png", 2999.00, 5, "2022-02-08 23:07:00", "2022-02-08 23:07:00");
+insert into produtos values (2,"Urna de Luxo", "urna.png", 4999.00, 5, "2022-02-08 23:10:00", "2022-02-08 23:10:00");
+insert into produtos values (3,"Cápsula Criogênica", "capsula-criogenica2.png", 10999.00, 5, "2022-02-08 23:11:00", "2022-02-08 23:11:00");
 
 select * from produtos;
 
+drop table produtos;
+
 
 -- SERVIÇOS
-insert into servicos values (1,"Necromaquiagem", "", "R$ 899,00", 5, "2022-02-08 23:13:00", "2022-02-08 23:13:00");
-insert into servicos values (2,"Serviço de Cremação", "", "R$ 1.200,00", 5, "2022-02-08 23:14:00", "2022-02-08 23:14:00");
-insert into servicos values (3,"Serviço de Criogênização", "", "R$ 11.500,00", 5, "2022-02-08 23:16:00", "2022-02-08 23:16:00");
+insert into servicos values (1,"Necromaquiagem", "", 899.00, 5, "2022-02-08 23:13:00", "2022-02-08 23:13:00");
+insert into servicos values (2,"Cremação", "",1200.00, 5, "2022-02-08 23:14:00", "2022-02-08 23:14:00");
+insert into servicos values (3,"Criogênização", "", 11500.00, 5, "2022-02-08 23:16:00", "2022-02-08 23:16:00");
 
 select * from servicos;
+
+drop table servicos;
 
 drop table AVendas;

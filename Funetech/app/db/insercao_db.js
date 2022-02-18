@@ -76,7 +76,7 @@ const tabela_produtos = db.sequelize.define('produtos',{
         type: db.Sequelize.STRING
     },
     preco: {
-        type: db.Sequelize.STRING
+        type: db.Sequelize.INTEGER
     },
     quantidade_disponivel: {
         type: db.Sequelize.INTEGER
@@ -92,7 +92,7 @@ const tabela_servicos = db.sequelize.define('servicos',{
         type: db.Sequelize.STRING
     },
     preco: {
-        type: db.Sequelize.STRING
+        type: db.Sequelize.INTEGER
     },
     quantidade_disponivel: {
         type: db.Sequelize.INTEGER

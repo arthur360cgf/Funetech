@@ -1,8 +1,8 @@
 {{!-- testando 123</h5> --}}
 
 <div class="titulo">
-      <h2>Itens Disponíveis</h2>
-      <p>Aqui você pode ver os produtos e serviços disponíveis para compra.</p>
+    <h2>Itens Disponíveis</h2>
+    <p>Aqui você pode ver os produtos e serviços disponíveis para compra.</p>
 </div>
 
 <br>
@@ -22,26 +22,26 @@
 
     <div id="produtos" class="itens">
         {{#each produtos}}
-            <div class="container-produto">
-                {{!-- Nome: {{nome_comprador}}<br> --}}
-                <div class="imagem-produto-loja">
-                    <img src={{caminho_da_imagem}} alt="imagem"/>
-                </div>
-
-                <div class="opcoes-loja">
-                    <h2>{{nome_item}}</h2>
-                    <br><span class="preco">{{preco}}</span>
-                    <p>
-                        {{quantidade_disponivel}} disponíveis
-                    </p>
-
-                    <button class="botao-carrinho">
-                        <i class="fa-solid fa-cart-shopping" style="padding-right:3px;"></i>
-                        Adicionar ao carrinho
-                    </button>
-                </div>
-                    
+        <div class="container-produto">
+            {{!-- Nome: {{nome_comprador}}<br> --}}
+            <div class="imagem-produto-loja">
+                <img src={{caminho_da_imagem}} alt="imagem"/>
             </div>
+
+            <div class="opcoes-loja">
+                <h2>{{nome_item}}</h2>
+                <br><span class="preco">R$ {{preco}}</span>
+                <p>
+                    {{quantidade_disponivel}} disponíveis
+                </p>
+
+                <button class="botao-carrinho" onclick="addItemAoCarrinho('{{nome_item}}',{{preco}})" >
+                    <i class="fa-solid fa-cart-shopping" style="padding-right:3px;"></i>
+                    Adicionar ao carrinho
+                </button>
+            </div>
+
+        </div>
         {{/each}}
     </div>
 
@@ -59,26 +59,26 @@
 
     <div id="servicos" class="itens">
         {{#each servicos}}
-            <div class="container-produto">
-                {{!-- Nome: {{nome_comprador}}<br> --}}
-                <div class="imagem-produto-loja">
-                    <img src={{caminho_da_imagem}} alt="imagem"/>
-                </div>
-                
-                <div class="opcoes-loja">
-                    <h2>{{nome_item}}</h2>
-                    <br><span class="preco">{{preco}}</span>
-                    <p>
-                        {{quantidade_disponivel}} disponíveis
-                    </p>
-
-                    <button class="botao-carrinho">
-                        <i class="fa-solid fa-cart-shopping" style="padding-right:3px;"></i>
-                        Adicionar ao carrinho
-                    </button>
-                </div>
-                
+        <div class="container-produto">
+            {{!-- Nome: {{nome_comprador}}<br> --}}
+            <div class="imagem-produto-loja">
+                <img src={{caminho_da_imagem}} alt="imagem"/>
             </div>
+
+            <div class="opcoes-loja">
+                <h2>{{nome_item}}</h2>
+                <br><span class="preco">R$ {{preco}}</span>
+                <p>
+                    {{quantidade_disponivel}} disponíveis
+                </p>
+
+                <button class="botao-carrinho" onclick="addItemAoCarrinho('{{nome_item}}',{{preco}})">
+                    <i class="fa-solid fa-cart-shopping" style="padding-right:3px;"></i>
+                    Adicionar ao carrinho
+                </button>
+            </div>
+
+        </div>
         {{/each}}
     </div>
 </div>
@@ -111,12 +111,42 @@
         <div class="itens-no-carrinho">
 
             {{!-- MSG QUE DEVE APARECER SE O CARRINHO ESTIVER VAZIO --}}
-            <div class="msg-carrinho-vazio">
+            <div class="msg-carrinho-vazio" id="msg-carrinho-vazio">
                 <br>
                 <p><b>Você ainda não adicionou nada no carrinho!</b></p>
                 <img class="img-carrinho-vazio" src="undraw_empty_cart.svg" alt="carrinho-vazio"/>
             </div>
+
+            {{!-- AQUI FICARÁ CADA ITEM NO CARRINHO --}}
+            <div id="cada-item" class="todos-os-itens">
+                {{!-- <div class="titulo-itens">
+                    <p>Nome do Item</p>
+                    <p>Preço</p>
+                    <p>Quantidade</p>
+                    <p>Excluir</p>
+                </div>
+
+                <div class="item-individual">
+                    <p class="nome-item">caixao</p>
+                    <p class="preco-item">R$ 100,00</p>
+                    <input type="number" id="quantidade-item" name="quantidade-item" min="1">
+                    <button class="remover-item-do-carrinho botao2">
+                        <i class="fa-solid fa-xmark" fa-xl></i>
+                    </button>
+                </div> --}}
+
+            </div>
+
+            <div class="valor" id="valor" style="display: none;">
+                <p>Valor Total:</p>
+                <p>
+                    <span class="preco preco-total" style="font-size: 2rem;">R$</span>
+                    <span class="preco preco-total" id="preco-total" style="font-size: 2rem;"></span>
+                </p>
+            </div>
+
         </div>
+
         {{!-- <p>Assim que escolher seus itens, clique no botão abaixo para continuar.</p> --}}
         <div class="botoes-carrinho">
             <button onclick="irTelaDadosDoCliente()">
@@ -129,34 +159,202 @@
     {{!-- SEGUNDA TELA: DADOS PARA PEDIDO --}}
     <div id="dados-carrinho">
         <p>Digite os seus dados para finalizar o pedido:</p>
-        <div class="dados">
-            <br>
-            {{!-- NOME DO CLIENTE --}}
-            <label for="nome-cliente">Nome</label>
-            <input type="text" id="nome-cliente" name="nome-cliente" class="input" placeholder="Digite o seu nome aqui...">
+        <form action="/pedido-concluido" method="post">
+            <div class="dados">
+                <br>
+                <!-- NOME DO COMPRADOR -->
+                <label for="nome">Nome do Comprador</label>
+                <input type="text" id="nome" name="nome_comprador" class="input" placeholder="Digite aqui o nome..">
 
-            {{!-- EMAIL DO CLIENTE --}}
-            <label for="email-cliente">E-mail</label>
-            <input type="text" id="email-cliente" name="email-cliente" class="input" placeholder="Digite o seu email aqui...">
+                <!-- CAMPO INVISIVEL -->
+                <input type="text" id="item_pedido" name="item_pedido" class="input" value="Compra Personalizada" style="display:none;">
 
-            {{!-- TELEFONE DO CLIENTE --}}
-            <label for="telefone-cliente">Telefone</label>
-            <input type="text" id="telefone-cliente" name="telefone-cliente" class="input" placeholder="Digite o seu telefone aqui...">
-        </div>
+                <!-- NUMERO DE TELEFONE -->
+                <label for="nome">Número de Telefone</label>
+                <input type="tel" id="telefone_comprador" name="telefone_comprador" class="input" placeholder="(12) 1234-5678">
 
-        <div class="botoes-carrinho">
-            <button class="botao2" onclick="irTelaItensDoCarrinho()">
-                <i class="fa-solid fa-angle-left fa-xl" style="padding-right:3px;"></i>
-                Voltar
-            </button>
+                <!-- Email -->
+                <label for="nome">Email</label>
+                <input type="text" id="email_comprador" name="email_comprador" class="input" placeholder="Digite aqui o email..">
 
-            <button>
-                <i class="fa-solid fa-check fa-xl" style="padding-right:3px;"></i>
-                Reservar Itens
-            </button>
-        </div>
+            </div>
+
+            <div class="botoes-carrinho">
+                <button class="botao2" onclick="irTelaItensDoCarrinho()">
+                    <i class="fa-solid fa-angle-left fa-xl" style="padding-right:3px;"></i>
+                    Voltar
+                </button>
+
+                <input type="submit" value="Reservar Itens">
+                    {{!-- <i class="fa-solid fa-check fa-xl" style="padding-right:3px;"></i> --}}
+            </div>
+        </form>
     </div>
-    
+
 </div>
 
 <script src="main.js"></script>
+{{!-- <script src="../../db/conexao_db.js"></script>
+<script src="../../db/insercao_db.js"></script> --}}
+
+<script>/* FUNCOES DE BACK-END */
+
+// NESSE ARRAY TERÁ TODOS OS ITENS DE CARRINHO
+var carrinho=[];
+var contador=0;
+
+var precoTotal;
+
+function addItemAoCarrinho(nome_item,preco_item){
+    // console.log(carrinho.length);
+    addItemBackEnd(nome_item,preco_item);
+    atualizaFrontEnd();
+}
+
+function addItemBackEnd(nome_item,preco_item){
+    for (var i=0;i<carrinho.length;i++){
+        if (carrinho[i].nomeItem==nome_item){
+            carrinho[i].quantidadeItem++;
+
+            console.log("ITEM REPETIDO: ");
+            console.log(carrinho);
+            console.log(" ");
+            return;
+        }
+    }
+
+
+    novoItem={
+        id: contador,
+        nomeItem: nome_item,
+        precoItem: preco_item,
+        quantidadeItem: 1
+    };
+
+    // console.log(novoItem.nomeItem);
+    // console.log(novoItem.precoItem);
+    
+    carrinho.push(novoItem);
+    contador++;
+
+    console.log("CARRINHO: ");
+    console.log(carrinho);
+    console.log(" ");
+}
+
+function atualizaFrontEnd(){
+    if (carrinho.length>0){
+        document.getElementById('msg-carrinho-vazio').style.display="none";
+        document.getElementById('valor').style.display="block";
+    }else{
+        document.getElementById('msg-carrinho-vazio').style.display="block";
+        document.getElementById('cada-item').style.display="none";
+    }
+
+    var itens_no_carrinho=document.getElementById('cada-item');
+    itens_no_carrinho.innerHTML="";
+
+    precoTotal=0;
+    for (var i=0;i<carrinho.length;i++){
+        itens_no_carrinho.innerHTML+=`
+
+        <div class="cada-item2">
+            <tr>
+                <td>
+                    <p class="nome-item" style="width:10rem">`+carrinho[i].nomeItem+`</p>
+                </td>
+
+                <td>
+                    <p class="preco-item">R$ `+carrinho[i].precoItem+`</p>
+                </td>
+
+                <td>
+                    <input type="number" id="quantidade-item" name="quantidade-item" value="`+carrinho[i].quantidadeItem+`" min="1">
+                </td>
+
+                <td>
+                    <button class="remover-item-do-carrinho botao2" onclick="removeItem(`+i+`)">
+                        <i class="fa-solid fa-xmark" fa-xl></i>
+                    </button>
+                </td>
+            </tr>
+        </div>
+        `;
+
+        
+        precoTotal+=carrinho[i].precoItem*carrinho[i].quantidadeItem;
+
+        //console.log(typeof(carrinho[i].precoItem));
+    }
+    //atualizaValorTotal();
+    document.getElementById('preco-total').innerHTML=precoTotal;
+}
+
+//function editaQuantidade(nome_item){
+//    quantidadeDigitada = document.getElementById("quantidade-item"); //SELECIONA O CAMPO ONDE SERÁ DIGITADO A PESQUISA
+//    novo=quantidadeDigitada.value;
+
+//    for (var i=0;i<carrinho.length;i++){
+        
+
+//        if (carrinho[i].nomeItem==nome_item){
+//            carrinho[i].quantidadeItem=novo;
+//            atualizaValorTotal();
+//            return;
+//        }
+//    }
+//}
+
+//function atualizaValorTotal(){
+//    for (var i=0;i<carrinho.length;i++){
+//        precoTotal+=carrinho[i].precoItem*carrinho[i].quantidadeItem;
+//    }
+
+//    atualizaFrontEnd();
+//}
+
+
+function removeItem(index){
+    if (index > -1) {
+        carrinho.splice(index, 1); // 2nd parameter means remove one item only
+        //console.log("entrou");
+    }
+    atualizaFrontEnd();
+
+    console.log("CARRINHO: ");
+    console.log(carrinho);
+    console.log(" ");
+}
+
+
+//FUNCOES DE INSERCAO BD
+
+//var nomeCliente, emailCliente, telefoneCliente;
+
+//function finalizaCompra(){
+//    coletaDadosDoCliente();
+//    insereNaTabelaCompras();
+//}
+
+//function coletaDadosDoCliente(){
+//    nomeCliente=document.getElementById("nome-cliente").value;
+//    emailCliente=document.getElementById("email-cliente").value;
+//    telefoneCliente=document.getElementById("telefone-cliente").value;
+//}
+
+//function insereNaTabelaCompras(){
+//    insercaoDB.insercao_compras.create({
+//        nome_comprador: nomeCliente,
+//        item_pedido: "COMPRA PERSONALIZADA",
+//        telefone: telefoneCliente,
+//        email: emailCliente,
+//    }).then(function(){
+//        //res.send("valores inseridos com sucesso");
+//        console.log("\n\nForam inseridos na tabela 'compras' os seguintes dados: \n");
+//        console.log(carrinho);
+
+//    }).catch(function(erro){
+//        res.send("valores não foram inseridos <br>"+erro);
+//    })
+//}
+</script>
