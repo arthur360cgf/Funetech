@@ -101,9 +101,9 @@ drop table produtos;
 
 
 -- SERVIÇOS
-insert into servicos values (1,"Necromaquiagem", "", 899.00, 5, "2022-02-08 23:13:00", "2022-02-08 23:13:00");
-insert into servicos values (2,"Cremação", "",1200.00, 5, "2022-02-08 23:14:00", "2022-02-08 23:14:00");
-insert into servicos values (3,"Criogênização", "", 11500.00, 5, "2022-02-08 23:16:00", "2022-02-08 23:16:00");
+insert into servicos values (1,"Necromaquiagem", "necromaquiagem.jpeg", 899.00, 5, "2022-02-08 23:13:00", "2022-02-08 23:13:00");
+insert into servicos values (2,"Cremação", "cremacao.jpg",1200.00, 5, "2022-02-08 23:14:00", "2022-02-08 23:14:00");
+insert into servicos values (3,"Criogenização", "criogenizacao.jpg", 11500.00, 5, "2022-02-08 23:16:00", "2022-02-08 23:16:00");
 
 select * from servicos;
 
