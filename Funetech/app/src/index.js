@@ -39,7 +39,7 @@ const { Op } = require("sequelize");
 
 //PARA USAR O PATH
 const path=require("path");
-
+const Memoriais = require('../src/views/adm_memoriais');
 //PARA CONSEGUIR USAR CSS, IMAGENS, JS
 app.use(express.static(path.join(__dirname,'_css')));
 app.use(express.static(path.join(__dirname,'Imagens')));
@@ -162,7 +162,30 @@ app.get("/memoriais", function(req, res) {
     insercaoDB.insercao_memorial.findAll().then(function(memorial){
         res.render('memoriais', {memorial: memorial.map(memorial => memorial.toJSON())});
     })
-}); 
+});
+
+//ROTA 2.3.2 PAGINA DE MEMORIAS PARA O ADM
+app.get("/adm-memoriais",function(req,res){
+    //res.send("nada");
+    insercaoDB.insercao_memorial.findAll({order :[['id','ASC']]}).then(function(memoriais){
+        //res.render('adm_memoriais',
+        //insercaoDB.insercao_memorial.findAll({
+        //    where:{
+         //   id: {
+        //      [Op.eq]: 1
+             
+    
+        //    }
+        //  }
+        //}).then(function(memoriais){
+               
+        //res.render("adm_memoriais",{memoriais:memoriais});
+         res.render('adm_memoriais',{title: "Memoriais - Funetech",
+         memoriais: memoriais.map(memoriais => memoriais.toJSON())});
+    })
+    
+    
+});
 
 app.listen(3000, () => {
     console.log("Online na porta 3000\n");
