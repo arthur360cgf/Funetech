@@ -517,3 +517,10 @@ table td{
     
 }
 #listaMemoriais{ display: none;margin-top: 17rem; }
+.justify{
+     display:flex;
+     justify-content:space-between;
+     content="width=device-width;
+     margin: 10px;
+  
+}
