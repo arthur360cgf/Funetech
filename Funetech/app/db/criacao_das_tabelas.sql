@@ -95,6 +95,12 @@ insert into produtos values (1,"Caixão de Luxo", "caixao-ouro.png", 2999.00, 5,
 insert into produtos values (2,"Urna de Luxo", "urna.png", 4999.00, 5, "2022-02-08 23:10:00", "2022-02-08 23:10:00");
 insert into produtos values (3,"Cápsula Criogênica", "capsula-criogenica2.png", 10999.00, 5, "2022-02-08 23:11:00", "2022-02-08 23:11:00");
 
+insert into produtos values (4,"Caixão Simples", "caixao-simples.png", 1500.00, 5, "2022-02-18 12:18:00", "2022-02-18 12:18:00");
+insert into produtos values (5,"Urna Simples", "urna-simples.png", 2500.00, 5, "2022-02-18 12:18:00", "2022-02-18 12:18:00");
+insert into produtos values (6,"Caixa de Velas", "caixa-velas.png", 8.00, 50, "2022-02-18 12:18:00", "2022-02-18 12:18:00");
+
+
+
 select * from produtos;
 
 drop table produtos;
