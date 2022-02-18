@@ -332,3 +332,29 @@ input[type=submit]:hover, .botao:hover, button:hover{
 .dados{
     margin: 10px;
 }
+
+/* MEMORIAIS */
+.tituloMemoriais p {
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center 
+}
+
+.conteudo {
+    text-align: center;
+}
+
+.memoriais {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 30px;
+    margin: 20px;
+    display: inline-block;
+    width: auto; 
+    margin-bottom: 3rem;
+ }
+
+.memoriais p {
+    font-size: 15px;
+ }
