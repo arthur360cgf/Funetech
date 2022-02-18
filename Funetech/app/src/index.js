@@ -4,9 +4,19 @@ const app=express();
 
 //CONFIGURACAO DO HANDLEBARS
 // const handlebars = require("express-handlebars");
-import { engine } from 'express-handlebars';
+const { engine } = require('express-handlebars');
 
-app.engine('handlebars', engine());
+//MOMENT PARA TRABALHAR COM DATAS
+const moment = require('moment');
+
+app.engine('handlebars', engine({
+    defaultLayout: 'main', 
+    helpers: {
+        formatDate: (date) => {
+            return moment(date).format('DD/MM/YYYY')
+        }
+    }
+}))
 app.set('view engine', 'handlebars');
 
 /*IMPORTANTE: POR ALGUM MOTIVO SE ABAIXO ESTIVER APENAS
@@ -143,14 +153,16 @@ app.get("/itens-a-venda", function(req, res) {
                 }
             );
         })
-    })
-
-    
-
-    
-
-    
+    })    
 })
+
+//____________________
+//4 ROTA DOS MEMORIAIS
+app.get("/memoriais", function(req, res) {
+    insercaoDB.insercao_memorial.findAll().then(function(memorial){
+        res.render('memoriais', {memorial: memorial.map(memorial => memorial.toJSON())});
+    })
+}); 
 
 app.listen(3000, () => {
     console.log("Online na porta 3000\n");
