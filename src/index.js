@@ -1,3 +1,6 @@
+//CONFIGURAÇÃO DA PORTA
+const porta = process.env.PORT || 3000;
+
 //CONFIGURACAO DO EXPRESS
 const express = require("express");
 const app=express();
@@ -187,7 +190,7 @@ app.get("/adm-memoriais",function(req,res){
     
 });
 
-app.listen(3000, () => {
-    console.log("Online na porta 3000\n");
+app.listen(porta, () => {
+    console.log("Online na porta "+porta+"\n");
 })
 
