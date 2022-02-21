@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Formulários dos Clientes</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style_formularios_clientes.css">
+    </head>
+
+    <body>
+        <!--BARRA DE NAVEGAÇÃO-->
+        <div class="nav-bar">
+            <ul>
+                <img class="logo-do-site" src="logo.png" alt="logo do site">
+                
+                <!--AQUI, POR ESTES ELEMENTOS ESTAREM COM "float:right" ELES SÃO EXIBIDOS NA ORDEM CONTRARIA-->
+                <li class="inativo"><a href="">Voltar Para Página Inicial</a></li>
+                <li class="inativo"><a href="/memoriais_cadastrados">Memoriais Cadastrados</a></li>
+                <li class="ativo"><a href="">Formulários de Pedidos</a></li>
+            </ul>
+        </div>
+
+
+        <div class="titulo">
+            <h2>Formulários de Pedidos dos Clientes</h2>
+            <p>"Administrador", aqui você pode ver os pedidos solicitados pelos clientes até agora.</p>
+            <p>Você tem um total de <b>2</b> pedidos esperando.</p>
+        </div>
+
+        <br>
+        <!--LISTA DOS PEDIDOS ABAIXO-->
+
+        
+        <!--<div class="pedidos">-->
+
+            <!--PEDIDO 1-->
+            <div class="campo-pedido">
+                <div class="titulo-pedido">
+                    <h4>1- Fulano Da Silva</h4>
+                </div>
+                <div class="info-pedido">
+                    <ul>
+                        <li><b>E-mail:</b><br> exemplo@gmail.com </li><br>
+                        <li><b>Telefone:</b><br> 86 9 1234-5678</li><br>
+                        <!--<li><b>Endereço:<br></b> Rua Wolys Moraes, 134</li><br>-->
+
+                        
+                        <p><b>Itens pedidos:</b></p>
+
+                        <div class="tabela-pedidos">
+                            <table>
+                                <tr>
+                                    <th class="quantidade">Quantidade:</th>
+                                    <th>Item:</th>
+                                </tr>
+                                <tr>
+                                    <td class="quantidade">1</td>
+                                    <td>Caixão G marrom</td>
+                                </tr>
+                                <tr>
+                                    <td class="quantidade">1</td>
+                                    <td>Urna</td>
+                                </tr>
+                                <tr>
+                                    <td class="quantidade">3</td>
+                                    <td>Coroa de Flores</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </ul>
+
+                    <div class="botoes-dos-pedidos">
+                        <button type="submit" id="concluir-pedido">Concluir Pedido</button>
+                        <button type="submit" id="entrar-em-contato">Entrar em Contato</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--PEDIDO 2-->
+            <div class="campo-pedido">
+                <h4 class="titulo-pedido">2- Sicrano Filho</h4>
+                <div class="info-pedido">
+                    <ul>
+                        <li><b>E-mail:</b><br> sicranomororo@gmail.com </li><br>
+                        <li><b>Telefone:</b><br> 86 9 2221-3341</li><br>
+                        <!--<li><b>Endereço:<br></b>Rua Mororoense, 535</li><br>-->
+
+                        <p><b>Itens pedidos:</b></p>
+
+                        <div class="tabela-pedidos">
+                            <table>
+                                <tr>
+                                    <th class="quantidade">Quantidade:</th>
+                                    <th>Item:</th>
+                                </tr>
+                                <tr>
+                                    <td class="quantidade">1</td>
+                                    <td>Caixão M preto</td>
+                                </tr>
+                                <tr>
+                                    <td class="quantidade">4</td>
+                                    <td>Coroa de Flores</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </ul>
+                    
+                    <div class="botoes-dos-pedidos">
+                        <button type="submit" id="concluir-pedido">Concluir Pedido</button>
+                        <button type="submit" id="entrar-em-contato">Entrar em Contato</button>
+                    </div>
+
+                </div>
+            </div>
+
+        <!--</div>-->
+        
+        <br><br>
+
+
+        <!--TELA DE LOGIN-->
+        <div id="id01" class="modal">
+            <div class="titulo-tela-login">
+                <h2>É necessário ser um administrador para usar essa página!</h2>
+            </div>
+            <form class="modal-content"  method="dialog">
+
+                <!--INPUTS DE LOGIN-->
+                <div class="login">
+                    <label for="email"><b>E-mail</b></label>
+                    <input type="text" placeholder="Digite aqui o e-mail" name="email" id="email">
+
+                    <p id="aviso-email-vazio"><b>O campo "E-mail" não pode ser vazio!</b></p>
+
+                    <label for="senha"><b>Senha</b></label>
+                    <input type="password" placeholder="Digite aqui a senha" name="senha" id="senha">
+
+                    <p id="aviso-senha-vazia"><b>O campo "Senha" não pode ser vazio!</b></p>
+                </div>
+
+                <!--BOTAO DE LOGIN-->
+                <div class="botao-login">
+                    <button type="submit" id="botao-de-login" onclick="fazerLogin()">Fazer Login</button>
+                </div>
+            </form>
+        </div>
+
+        <footer class="rodape">
+            <h5>Site criado por: <a href="https://github.com/les-prp-uespi/engsw-tp-grupo-e">Grupo E</a></h5>
+        </footer>
+        
+    </body>
+
+    <script src="main_pedido_dos_clientes.js"></script>
+</html>
