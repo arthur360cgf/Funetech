@@ -34,6 +34,10 @@ const insercao_memorial = db.sequelize.define('memoriais',{
 
 //DEFINIÇÃO DA TABELA "compras"
 const insercao_compras = db.sequelize.define('compras',{
+    id:{
+        type: db.Sequelize.INTEGER,
+        primaryKey: true
+    },
     nome_comprador: {
         type: db.Sequelize.STRING
     },
@@ -99,6 +103,18 @@ const tabela_servicos = db.sequelize.define('servicos',{
     }
 })
 
+const tabela_itensPedidos = db.sequelize.define('itensPedidos',{
+    nome_item: {
+        type: db.Sequelize.STRING
+    },
+    quantidade_pedida: {
+        type: db.Sequelize.INTEGER
+    },
+    id_compra:{
+        type: db.Sequelize.INTEGER
+    }
+})
+
 //CRIAR TABELA
 //insercao.sync({force: true});
 
@@ -109,7 +125,8 @@ module.exports={
     insercao_compras: insercao_compras,
     // insercao_AVenda: insercao_AVenda
     tabela_produtos: tabela_produtos,
-    tabela_servicos: tabela_servicos
+    tabela_servicos: tabela_servicos,
+    tabela_itensPedidos: tabela_itensPedidos
 
     /*AQUI DEVE FICAR OS OUTROS consts PARA PARA FAZER A INSERÇÃO NO BD.
     NO index.js, NA ROTA QUE RECEBE OS DADOS DIGITADOS, CADA UM DEVE SER

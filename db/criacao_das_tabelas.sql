@@ -40,10 +40,29 @@ updatedAt DateTime
 );
 
 select * from compras;
+select compras.id,compras.nome_comprador from compras order by compras.createdAt desc limit 1;
+
+-- drop table compras;
 
 insert into compras values (4,"asss","pacote3", "sss@asa", "2222" ,"2022-02-08 15:52:46","2025-02-04 15:52:46");
 
-drop table compras;
+create table itensPedidos(
+id int primary key auto_increment,
+nome_item varchar(100),
+quantidade_pedida int,
+id_compra int,
+
+/* DO SEQUELIZE */
+createdAt DateTime,
+updatedAt DateTime
+);
+
+select * from itensPedidos;
+
+drop table itensPedidos;
+
+
+-- drop table compras;
 
 -- NAO UTILIZADO MAIS ---------------------------------
 /* TABELA DAS PRODUTOS E SERVICOS DISPONIVEIS*/

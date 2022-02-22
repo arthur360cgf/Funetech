@@ -159,7 +159,7 @@
     {{!-- SEGUNDA TELA: DADOS PARA PEDIDO --}}
     <div id="dados-carrinho">
         <p>Digite os seus dados para finalizar o pedido:</p>
-        <form action="/pedido-concluido" method="post">
+        <form action="/pedido-de-itens-concluido" method="post">
             <div class="dados">
                 <br>
                 <!-- NOME DO COMPRADOR -->
@@ -168,6 +168,9 @@
 
                 <!-- CAMPO INVISIVEL -->
                 <input type="text" id="item_pedido" name="item_pedido" class="input" value="Compra Personalizada" style="display:none;">
+
+                <!-- CAMPO INVISIVEL 2 - CARRINHO -->
+                <input type="text" id="StringCarrinho" name="StringCarrinho" class="input" style="display:none;">
 
                 <!-- NUMERO DE TELEFONE -->
                 <label for="nome">Número de Telefone</label>
@@ -201,6 +204,8 @@
 
 // NESSE ARRAY TERÁ TODOS OS ITENS DE CARRINHO
 var carrinho=[];
+var StringCarrinho;
+
 var contador=0;
 
 var precoTotal;
@@ -209,6 +214,7 @@ function addItemAoCarrinho(nome_item,preco_item){
     // console.log(carrinho.length);
     addItemBackEnd(nome_item,preco_item);
     atualizaFrontEnd();
+    atualizaStringCarrinho();
 }
 
 function addItemBackEnd(nome_item,preco_item){
@@ -288,6 +294,22 @@ function atualizaFrontEnd(){
     }
     //atualizaValorTotal();
     document.getElementById('preco-total').innerHTML=precoTotal;
+}
+
+function atualizaStringCarrinho(){
+    StringCarrinho="";
+    for (var i=0;i<carrinho.length;i++){
+        StringCarrinho+=carrinho[i].nomeItem+",";
+        StringCarrinho+=carrinho[i].quantidadeItem+",";
+    }
+
+    //StringCarrinho=StringCarrinho.split(",");
+    //StringCarrinho.pop();
+    //console.log(StringCarrinho);
+
+    document.getElementById('StringCarrinho').value=StringCarrinho;
+
+    console.log(document.getElementById('StringCarrinho').value);
 }
 
 //function editaQuantidade(nome_item){
