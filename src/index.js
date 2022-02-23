@@ -246,7 +246,15 @@ app.get("/adm-memoriais",function(req,res){
     
     
 });
-
+app.get("/del-memoriais/:id", function(req, res){
+    insercaoDB.insercao_memorial.destroy({
+        where: {"id": req.params.id}
+    }).then(function(){
+        res.redirect(('/adm-memoriais'));
+    }).catch(function(erro){
+        res.send("Memorial não apagado com sucesso!");
+    })
+});
 app.listen(porta, () => {
     console.log("Online na porta "+porta+"\n");
 })
