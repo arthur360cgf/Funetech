@@ -2,6 +2,10 @@ const db=require("./conexao_db");
 
 //DEFINIÇÃO DA TABELA "memoriais"
 const insercao_memorial = db.sequelize.define('memoriais',{
+    id:{
+        type: db.Sequelize.INTEGER,
+        primaryKey: true
+    },
     nome: {
         type: db.Sequelize.STRING
     },

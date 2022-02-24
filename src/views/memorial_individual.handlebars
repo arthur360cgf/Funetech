@@ -1,0 +1,56 @@
+<div class="conteudo-memorial"
+    <div>
+        {{#each memorial}}
+
+            {{!-- IMAGEM DO FALECIDO --}}
+            <br>
+            <div class="imagem-memorial center-memorial">
+                <img src={{imagem}} alt="imagem"/>
+            </div>
+
+            {{!-- NOME DO FALECIDO --}}
+            <div class="nome-memorial center-memorial">
+                <h2>{{nome}}</h2>
+            </div>
+
+            <div class="pre-container-memorial">
+                <div class="container-memorial">
+                    {{!-- NASCIMENTO --}}
+                    <div class="datas-memorial">
+                        <div class="nascimento center-memorial">
+                            <i class="fa-solid fa-star icone-memorial fa-xl"></i>
+                            <p>{{formatDate data_nascimento}} - {{local_nascimento}}</p>
+                        </div>
+                        <div class="falecimento center-memorial">
+                            <i class="fa-solid fa-cross icone-memorial fa-xl"></i>
+                            <p>{{formatDate data_falecimento}} - {{local_falecimento}}</p>
+                        </div>
+                    </div>
+
+                    <br><br>
+
+                    {{!-- BREVE MENSAGEM --}}
+                    <p class="center-memorial textos-memorial">
+                        {{breve_mensagem}}
+                    </p>
+
+                    <br><br>
+
+                    {{!-- BIOGRAFIA --}}
+                    <p class="center-memorial textos-memorial">
+                        {{biografia}}
+                    </p>
+
+                    <br><br>
+
+                    {{!-- VIDEO DE HOMENAGEM --}}
+                    <div class="video-memorial">
+                            <iframe src={{link_video_de_homenagem}}></iframe>
+                    </div>    
+                    <br>                
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+</div>

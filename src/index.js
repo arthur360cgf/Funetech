@@ -224,6 +224,25 @@ app.get("/memoriais", function(req, res) {
     })
 });
 
+//4.2 ROTA DO MEMORIAL INDIVIDUAL
+app.get("/memorial", function(req, res) {
+    console.log("o id vindo é "+req.query.id);
+
+    //select * from memorial where id="id vindo da url"
+    insercaoDB.insercao_memorial.findAll({
+        where: {id: req.query.id}
+    }).then(function(memorial){
+
+        //COLETANDO O NOME DO FALECIDO
+        const nomeFalecido= memorial.map(memorial => memorial.toJSON())[0].nome;
+
+        res.render('memorial_individual', {
+            title: "Memorial de "+nomeFalecido,
+            memorial: memorial.map(memorial => memorial.toJSON())
+        });
+    })
+});
+
 //ROTA 2.3.2 PAGINA DE MEMORIAS PARA O ADM
 app.get("/adm-memoriais",function(req,res){
     //res.send("nada");

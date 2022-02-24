@@ -520,7 +520,77 @@ table td{
 .justify{
      display:flex;
      justify-content:space-between;
-     content="width=device-width;
+     /* content="width=device-width; */
      margin: 10px;
   
+}
+
+/*MEMORIAL INDIVIDUAL*/
+/* .pre-container-memorial{
+
+} */
+
+.container-memorial{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 20px;
+}
+
+@media screen and (min-width: 1050px) {
+    .container-memorial{
+        width: 970px;
+    }
+
+    .pre-container-memorial{
+        display: grid;
+        justify-content: center;
+    }
+    
+}
+
+.center-memorial{
+    display: flex;
+    justify-content: center;
+
+    padding-right: 5px;
+}
+
+.imagem-memorial img{
+    height: 20rem;
+    width: 20rem;
+    object-fit: cover;
+
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+
+    border-radius: 50%;
+    
+}
+
+.nascimento, .falecimento{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icone-memorial{
+    /* position: relative;
+    top: 1.4rem; */
+
+    padding-right: 5px;
+} 
+
+.textos-memorial{
+    word-break: break-word;
+}
+
+.video-memorial{
+    display: flex;
+    justify-content: center;
+}
+
+.video-memorial iframe{
+    width: 700px; 
+    height: 400px;
 }
