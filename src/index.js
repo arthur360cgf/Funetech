@@ -234,7 +234,12 @@ app.get("/memorial", function(req, res) {
     }).then(function(memorial){
 
         //COLETANDO O NOME DO FALECIDO
-        const nomeFalecido= memorial.map(memorial => memorial.toJSON())[0].nome;
+        var nomeFalecido;
+        try{
+            nomeFalecido = memorial.map(memorial => memorial.toJSON())[0].nome;
+        }catch(erro){
+            res.send("não existe um memorial com esse id!");
+        }
 
         res.render('memorial_individual', {
             title: "Memorial de "+nomeFalecido,
