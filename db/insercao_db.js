@@ -2,10 +2,10 @@ const db=require("./conexao_db");
 
 //DEFINIÇÃO DA TABELA "memoriais"
 const insercao_memorial = db.sequelize.define('memoriais',{
-    id:{
-        type: db.Sequelize.INTEGER,
-        primaryKey: true
-    },
+    // id:{
+    //     type: db.Sequelize.INTEGER,
+    //     primaryKey: true
+    // },
     nome: {
         type: db.Sequelize.STRING
     },
@@ -38,10 +38,10 @@ const insercao_memorial = db.sequelize.define('memoriais',{
 
 //DEFINIÇÃO DA TABELA "compras"
 const insercao_compras = db.sequelize.define('compras',{
-    id:{
-        type: db.Sequelize.INTEGER,
-        primaryKey: true
-    },
+    // id:{
+    //     type: db.Sequelize.INTEGER,
+    //     primaryKey: true
+    // },
     nome_comprador: {
         type: db.Sequelize.STRING
     },
@@ -107,7 +107,7 @@ const tabela_servicos = db.sequelize.define('servicos',{
     }
 })
 
-const tabela_itensPedidos = db.sequelize.define('itensPedidos',{
+const tabela_itensPedidos = db.sequelize.define('itenspedidos',{
     nome_item: {
         type: db.Sequelize.STRING
     },
