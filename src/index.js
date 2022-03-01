@@ -56,32 +56,55 @@ app.use(express.static(path.join(__dirname,'_js')));
 
 //ROTA 1.1 - PÁGINA DE CADASTRO DO MEMORIAL
 app.use("/formulario-memorial",function(req,res){
-    res.sendFile(__dirname+"/Site/Produtos/Criar Memorial/cadastro_memorial.html");
+    
+    /*VERIFICA SE O AVISO ESTÁ NA QUERY COM "1",
+    SE ESTIVER COLOCA A DIV COM O AVISO COMO "BLOCK"
+    */
+    var AvisoCamposNaoPreenchidos;
+    if (req.query.alerta==1){
+        AvisoCamposNaoPreenchidos="block";
+    }else{
+        AvisoCamposNaoPreenchidos="none";
+    }
+
+    res.render('cadastro_memorial',
+                {title: "Cadastro Memorial - Funetech",
+                aviso: AvisoCamposNaoPreenchidos}
+            );
 })
 
 
 //ROTA 1.2 - INSERCAO NO BD DO CADASTRO DO MEMORIAL
 app.post("/insercao-concluida", function(req,res){
-    //console.log(req.body.localFale);
-    insercaoDB.insercao_memorial.create({
-        nome: req.body.nome,
-        imagem: req.body.imagemFalecido,
-        local_nascimento: req.body.localNasc,
-        data_nascimento: req.body.dataNasc,
-        local_falecimento: req.body.localFale,
-        data_falecimento: req.body.dataFale,
-        breve_mensagem: req.body.mensagem,
-        biografia: req.body.biografia,
-        link_video_de_homenagem: req.body.videoDeHomenagem
-    }).then(function(){
-        //res.send("valores inseridos com sucesso");
-        console.log("\n\nForam inseridos na tabela 'memorial' os seguintes dados: \n");
-        console.log(req.body);
+    // TESTA SE TODOS OS CAMPOS OBRIGATORIOS ESTAO PREENCHIDOS
+    const campos=req.body;
+    if (campos.nome!="" && campos.imagemFalecido!="" && campos.localNasc!="" && campos.dataNasc!="" && campos.localFale!="" && campos.dataFale!=""){
+        //console.log(req.body.localFale);
+        insercaoDB.insercao_memorial.create({
+            nome: req.body.nome,
+            imagem: req.body.imagemFalecido,
+            local_nascimento: req.body.localNasc,
+            data_nascimento: req.body.dataNasc,
+            local_falecimento: req.body.localFale,
+            data_falecimento: req.body.dataFale,
+            breve_mensagem: req.body.mensagem,
+            biografia: req.body.biografia,
+            link_video_de_homenagem: req.body.videoDeHomenagem
+        }).then(function(){
+            //res.send("valores inseridos com sucesso");
+            console.log("\n\nForam inseridos na tabela 'memorial' os seguintes dados: \n");
+            console.log(req.body);
 
-        res.sendFile(__dirname+"/Site/Produtos/Criar Memorial/insercao_memorial_concluida.html");
-    }).catch(function(erro){
-        res.send("valores não foram inseridos <br>"+erro);
-    })
+            res.sendFile(__dirname+"/Site/Produtos/Criar Memorial/insercao_memorial_concluida.html");
+        }).catch(function(erro){
+            res.send("valores não foram inseridos <br>"+erro);
+        })
+    }
+
+    else{
+        // res.req.body=req.body;
+        res.redirect("/formulario-memorial?alerta=1");
+    }
 })
 
 //_____________________

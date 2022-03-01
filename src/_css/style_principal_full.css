@@ -594,3 +594,40 @@ table td{
     width: 700px; 
     height: 400px;
 }
+
+/* FORMULARIO MEMORIAL */
+.data{
+    width: 10.5rem;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    /*resize: vertical;*/
+}
+
+.input{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+/* label{
+    display: flex;
+} */
+
+.alerta{
+    color: red;
+    margin-left: 5px;
+    font-size: 20px;
+    /* position: absolute; */
+}
+
+.alerta-campo-vazio{
+    background-color: #ff4343;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin: 20px 0;
+    border-radius: 20px;
+}
