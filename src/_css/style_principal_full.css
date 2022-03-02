@@ -409,15 +409,18 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* MEMORIAIS */
-.tituloMemoriais p {
+/* .tituloMemoriais p {
     font-size: 28px;
     display: flex;
     align-items: center;
     justify-content: center 
-}
+} */
 
 .conteudo {
     text-align: center;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
 }
 
 .memoriais {
@@ -425,10 +428,18 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: #f2f2f2;
     padding: 30px;
     margin: 20px;
-    display: inline-block;
-    width: auto; 
+    display: inline-block; 
     margin-bottom: 3rem;
+    width: 360px;
+    height: 400px;
  }
+
+.imagem-memoriais{
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
 .memoriais p {
     font-size: 15px;

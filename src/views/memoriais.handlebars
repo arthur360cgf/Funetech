@@ -1,14 +1,15 @@
-<div class="tituloMemoriais">
-    <p>Memoriais em nosso site</p> 
+<div class="titulo">
+    <h2>Memoriais Cadastrados</h2>
+    <p>Aqui você pode ver todos os memoriais cadastrados no nosso site.</p>
 </div>
 
 <div class="conteudo">
     {{#each memorial}}
         <div class="memoriais">
-            <img class="imagem" src="{{imagem}}" alt="imagem" width="200" height="120">
-            <p>{{nome}}</p>
-            <p>{{formatDate data_nascimento}} - {{formatDate data_falecimento}}</p>
-            <p>{{local_nascimento}} - {{local_falecimento}}</p>
+            <img class="imagem-memoriais" src="{{imagem}}" alt="imagem">
+            <p><b>{{nome}}</b></p>
+            <p>{{formatDate data_nascimento}} <b>-</b> {{formatDate data_falecimento}}</p>
+            <p>{{local_nascimento}} <b>-</b> {{local_falecimento}}</p>
 
             <br>
             <div >
