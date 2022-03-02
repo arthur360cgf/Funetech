@@ -1,0 +1,65 @@
+
+{{#each memoriais}}
+
+    
+
+       
+
+        <div id="titulo-editar">
+            <h2>Editar Memorial de {{nome}}</h2>
+            
+        </div>
+      
+<div id="edicao-detalhes">
+        <div class="pre-container">
+            <div class="container">
+                <form action="/atualizar-memoriais/{{id}}" method="post">
+                    
+                    <!--NOME-->
+                    <label for="nome">Nome do Falecido</label>
+                    <input type="text" id="nome" name="nome" class="input" placeholder="Digite aqui o nome.." value="{{nome}}">
+                    
+                    <!--IMAGEM-->
+                    <label for="imagem-falecido">Link da imagem do Falecido</label><br>
+                    <!--<input type="file" id="imagemFalecido" name="imagemFalecido"><br>-->
+                    <input type="text" id="imagemFalecido" name="imagemFalecido" class="input" placeholder="Digite aqui o nome.." value="{{imagem}}">
+                    
+                    <!--LOCAL DE NASCIMENTO-->
+                    <label for="local-nasc">Local de Nascimento</label>
+                    <input type="text" id="localNasc" name="localNasc" class="input" placeholder="Digite aqui o local do nascimento.." value="{{local_nascimento}}">
+                    
+                    <!--DATA DE NASCIMENTO-->
+                    <label for="data-nasc">Data de Nascimento</label><br>
+                    <input type="date" id="dataNasc" class="data input" name="dataNasc" value="{{data_nascimento}}"><br>
+                    <br>
+                    <!--LOCAL DE FALECIMENTO-->
+                    <label for="local-fale">Local de Falecimento</label>
+                    <input type="text" id="localFale" name="localFale" class="input" placeholder="Digite aqui o local do falecimento.." value="{{local_falecimento}}">
+                    <br>
+
+                    <!--DATA DE FALECIMENTO-->
+                    <label for="data-fale">Data de Falecimento</label><br>
+                    <input type="date" id="dataFale" class="data input" name="dataFale" value="{{data_falecimento}}"><br>
+                    <br>
+                    <!--BREVE MENSAGEM-->
+                    <label for="mensagem">Breve Mensagem</label>
+                    <textarea id="subject" name="mensagem" class="input" placeholder="Digite aqui uma breve mensagem sobre o falecido.." style="height:200px" >{{breve_mensagem}}</textarea>
+                    
+                    <!--BIOGRAFIA-->
+                    <label for="biografia">Biografia</label>
+                    <textarea id="subject" name="biografia" class="input" placeholder="Digite aqui a biografia do falecido.." style="height:200px">{{biografia}}</textarea>
+                    
+                    <!--VIDEO-->
+                    <label for="video-de-homenagem">Link do Video de Homenagem</label>
+                    <input type="url" id="videoDeHomenagem" name="videoDeHomenagem" class="input" placeholder="Digite aqui o link do video de homenagem do falecido.." value="{{link_video_de_homenagem}}">
+                           
+                    <!--ENVIAR-->
+                    <a href="/editar-memoriais?id={{id}}"><button>Salvar</button></a>
+                </form>
+            </div>
+        </div>
+{{/each}}
+      </div>  
+    </body>
+
+</html>
