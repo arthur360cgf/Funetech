@@ -462,65 +462,144 @@ input[type=number]::-webkit-outer-spin-button {
     height: 10px;
     border-radius: 50%;
 }
-#detalhes{
-    display: none;
 
-    width: 95%;
-    background-color: white;
-
-    border: 2px solid #d6d6d6;
-    border-radius: 10px;
-    margin: 10px;
-
-    position: fixed;
-    float:center;
-    bottom: 10px;
-    right: 10px;
-}
 
 #detalhes p{
     margin: 50px 50px;
 }
-.titulo-detalhes{
-    display: flex;
-    background-color: #f2f2f2;
-    font-size: 20px;
-    /* justify-content: center; */
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
+#titulo-detalhes p{
+    
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 40px;  
+    
 }
-.sair-detalhes{
-    background-color: #f2f2f2;
-    display: flex;
+#titulo-detalhes{
+    background-color:white;
     align-items: center;
-    margin-left: auto;
-    color: black;
+    
+    text-align: center;
+    size: 50px;
+    
 }
-.sair-detalhes:hover{
+#primeiro-titulo{
+    margin-top: 50px;
+    margin-left: 470px;
+    margin-right: 470px;
+    margin-bottom: 50px;
+    border: 2px solid black;
+    
+    border-bottom-left-radius: 25px;
+    border: 1px solid;
+    background-color: #ddd;
+    box-shadow: 5px 10px;
+}  
+#titulo-editar{
+    margin-top: 50px;
+    margin-left: 400px;
+    margin-right: 400px;
+    margin-bottom: 50px;
+    border: 2px solid black;
+    text-align: center;
+    border-bottom-left-radius: 25px;
+    border: 1px solid;
+    background-color: #ddd;
+    box-shadow: 5px 10px;
+}   
+#edicao-detalhes{
+    align-items: center;
+    border-color: black;
+    border-style: double;
+    border-width: 5px;
+    background-color: #ddd;
+    text-align: center;
+}    
+   
+
+#tabela-detalhes{
+    
+    align-items: center;
+    border-style: double;
+    border-width: 5px;
+    background-color: #ddd;
+    text-align: center;
+    
+  
+    
+}
+
+#buttoms{
+    align-items: center;
+    
+    background-color: #ddd;
+    text-align: center;
+    justify-content:space-between;
+}
+#buttoms button{
+    border-radius: 12px;
+    padding: 14px;
+    transition-duration: 0.4s;
+}
+#buttoms button:hover{
     background-color: #c8c8c8;
 }
-.nome-do-falecido{
-    margin-right: 100px;
+#nome-do-falecido{
+    margin-top: 10px;
+    
+    
+    
+    
+    text-align: center;
+    
+    
+    
     
 }
 table{
-    width: 100%;
-    border-collapse: collapse;
+    align-items: center;
+    
+    display:inline-table;
+    text-align: center;
+    width: 75%;
+
+    font-size: 30px;
 }
 table th,
 table td{
     
     border: 1px solid black;
-    
-    font-size: 14px;
-    padding: 10px 15px;
+    border-collapse: collapse;
+   
     
 }
-#listaMemoriais{ display: none;margin-top: 17rem; }
+th,td{
+    padding:5px 10px;
+}
+th{
+    text-align: center;
+    background-color:#00b637 ;
+    color:black; 
+}
+   *{
+       font-family:Arial,Helvetica,sans-serif;
+       
+   }
+table tr:nth-child(odd){
+    background-color: #ddd;
+}
+table tr:nth-child(even){
+    background-color:white;
+}
+td{
+    text-align: center;
+}
+
 .justify{
      display:flex;
      justify-content:space-between;
-     /* content="width=device-width; */
+     
+     background-color: #ddd;
+     /*content"width=device-width;*/
      margin: 10px;
   
 }
