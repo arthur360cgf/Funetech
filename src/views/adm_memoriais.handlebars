@@ -1,5 +1,5 @@
 <h2>Memoriais Cadastrados</h2>
-<h5>Administrador,aqui você pode gerenciar todos memoriais cadastrados até o momento<h5/>
+<h5>Administrador,aqui você pode gerenciar todos memoriais cadastrados até o momento</h5>
  {{#each memoriais}}
 <div id="justify" >
      <div class="justify">
@@ -8,22 +8,16 @@
                 <a href="{{imagem}}"> <img class="imagem-criador" src="{{imagem}}" alt="falecido"> </a>
           </div>
           </div>     
-          <div class="nome-do-cliente">
-               <label for="nome-cliente">{{nome}}</label>
+          <div id="nome-do-falecido">
+               <label><b>{{nome}}</b></label>
           </div>
           
           
-          <button class="botao-exibicao">
-               <button onclick="verDetalhes()">
-                    
-         
-                        Ver detalhes
-                    </button>
-                    {{!-- <p style="margin-left: 5px; font-size: 15px;">detalhes</p> --}}
-          </button>
-          <a href="/del-memoriais/{{id}}"><button>Apagar</button></a>          
-               
-         
+          <div id="buttoms">
+          <a href="/del-memoriais/{{id}}"><button>Apagar&nbsp<i class='fas fa-trash' style='font-size:14px;color:branco'></i></button></a>
+          <a href="/detalhes-memoriais?id={{id}}"><button>Detalhes&nbsp<i class='fa fa-folder-open' style='font-size:14px;color:branco' ></i></button></a>
+          <a href="/editar-memoriais?id={{id}}"><button>Editar&nbsp<i class='fas fa-edit' style='font-size:14px;color:branco'></i></button></a>
+          </div>
      </div>     
 </div>          
           
@@ -33,83 +27,22 @@
        
      
      
-    </div>
+   
 
     
      
      
-</div>
 
 
-{{!-- CARRINHO EM SI --}}
+
+
 
      
-<div id="detalhes">
-     
-    {{!-- TITULO --}}
-    <div class="titulo-detalhes">
-        <div id="titulo-falecido">
-        
-        <p><b>Detalhes do falecido</b></p>
-        </div>
 
-               <table>
-                    <thead>
-                         
-                         <tr>
-                              <th>{{nome}}</th>
-                              
-                         </tr>
-                         <tr>
-                              
-                              <th>{{imagem}}</th>
-                              
-                         </tr>
-                         <tr>
-                              
-                              <th>{{local_nascimento}}</th>
-                              
-                         </tr>
-                         <tr>
-                              
-                              <th>{{data_nascimento}}</th>
-                              
-                         </tr>
-                         <tr>
-                              
-                              <th>{{local_falecimento}}</th>
-                              
-                         </tr>
-                         <tr>
-                              
-                              <th>{{data_falecimento}}</th>
-                              
-                         </tr>
-                         <tr>
-                              
-                              <th>{{breve_mensagem}}</th>
-                             
-                         </tr>
-                         <tr>
-                              
-                              <th>{{biografia}}</th>
-                              
-                         </tr>
-                         <tr>
-                              
-                              <th>{{link_video_de_homenagem}}</th>
-                         </tr>
-                    </thead>
-            <tbody id='listaMemoriais'></tbody>
-        </table>
-        <hr>
-        <button class="sair-detalhes" onclick="fecharDetalhes()">
-                Fechar
-        </button>
-    </div>
-
+          
     
     
-</div>
+
 {{/each}}
 <script src="main.js"></script>
+
