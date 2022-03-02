@@ -631,3 +631,24 @@ table td{
     margin: 20px 0;
     border-radius: 20px;
 }
+
+/* PACOTES */
+@media screen and (max-width: 780px) {
+    .imagem-produto{
+        float: none;
+        width: 80%;
+        padding-bottom: 15px;
+    }
+
+    .dados-pacote{
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;  
+    }
+    
+    .mais-pacote{
+        display: block;
+        display: flex;
+        justify-content: center;  
+    }
+}
