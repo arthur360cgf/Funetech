@@ -78,6 +78,8 @@ app.use("/formulario-memorial",function(req,res){
 app.post("/insercao-concluida", function(req,res){
     // TESTA SE TODOS OS CAMPOS OBRIGATORIOS ESTAO PREENCHIDOS
     const campos=req.body;
+
+    // IMPEDE SALVAR NO BD SE OS CAMPOS ABAIXO ESTIVEREM VAZIOS
     if (campos.nome!="" && campos.imagemFalecido!="" && campos.localNasc!="" && campos.dataNasc!="" && campos.localFale!="" && campos.dataFale!=""){
         //console.log(req.body.localFale);
         insercaoDB.insercao_memorial.create({
@@ -117,36 +119,95 @@ app.use("/pacotes",function(req,res,next){
 
 //ROTA 2.2 - PÁGINA DE PACOTE DE CAIXAO
 app.use("/pacote-caixao",function(req,res,next){
-    res.sendFile(__dirname+"/Site/Serviços/Pacote_Caixão/caixao_novo.html");
+    var AvisoCamposNaoPreenchidos;
+    if (req.query.alerta==1){
+        AvisoCamposNaoPreenchidos="block";
+    }else{
+        AvisoCamposNaoPreenchidos="none";
+    }
+
+    res.render('pacote_caixao',
+                {title: "Pacote 1, Caixão de Luxo - Funetech",
+                aviso: AvisoCamposNaoPreenchidos}
+            );
 })
 
 //ROTA 2.3 - PÁGINA DE PACOTE DE URNA
 app.use("/pacote-urna",function(req,res,next){
-   res.sendFile(__dirname+"/Site/Serviços/Pacote_Urna/urna_novo.html");
+    var AvisoCamposNaoPreenchidos;
+        if (req.query.alerta==1){
+            AvisoCamposNaoPreenchidos="block";
+        }else{
+            AvisoCamposNaoPreenchidos="none";
+        }
+
+    res.render('pacote_urna',
+                {title: "Pacote 2, Urna de Luxo - Funetech",
+                aviso: AvisoCamposNaoPreenchidos}
+            );
 })
 
 //ROTA 2.4 - PÁGINA DE PACOTE DE CAPSULA
 app.use("/pacote-capsula",function(req,res,next){
-    res.sendFile(__dirname+"/Site/Serviços/Pacote_Capsula/capsula_novo.html");
+    var AvisoCamposNaoPreenchidos;
+        if (req.query.alerta==1){
+            AvisoCamposNaoPreenchidos="block";
+        }else{
+            AvisoCamposNaoPreenchidos="none";
+        }
+
+    res.render('pacote_capsula',
+                {title: "Pacote 3, Capsula 2077 - Funetech",
+                aviso: AvisoCamposNaoPreenchidos}
+            );
 })
 
 //ROTA 2.5 - INSERCAO NO BD DA COMPRA DO PACOTE
 app.post("/pedido-concluido", function(req,res){
     //console.log(req.body.localFale);
-    insercaoDB.insercao_compras.create({
-        nome_comprador: req.body.nome_comprador,
-        item_pedido: req.body.item_pedido,
-        telefone: req.body.telefone_comprador,
-        email: req.body.email_comprador,
-    }).then(function(){
-        //res.send("valores inseridos com sucesso");
-        console.log("\n\nForam inseridos na tabela 'compras' os seguintes dados: \n");
-        console.log(req.body);
+    const campos=req.body;
 
-        res.sendFile(__dirname+"/Site/pacotes/pedido_pacote_concluido.html");
-    }).catch(function(erro){
-        res.send("valores não foram inseridos <br>"+erro);
-    })
+    // IMPEDE SALVAR NO BD SE OS CAMPOS ABAIXO ESTIVEREM VAZIOS
+    if (campos.nome_comprador!="" && campos.telefone_comprador!="" && campos.email_comprador!=""){
+
+        // PREVINE MUDANÇAS FEITAS APERTANTO F12 E ALTERANDO O NOME DO PACOTE NAS LABELS
+        if (campos.item_pedido=="pacote de caixão" || campos.item_pedido=="pacote de urna" || campos.item_pedido=="pacote de cápsula"){
+            insercaoDB.insercao_compras.create({
+                nome_comprador: req.body.nome_comprador,
+                item_pedido: req.body.item_pedido,
+                telefone: req.body.telefone_comprador,
+                email: req.body.email_comprador,
+            }).then(function(){
+                //res.send("valores inseridos com sucesso");
+                console.log("\n\nForam inseridos na tabela 'compras' os seguintes dados: \n");
+                console.log(req.body);
+
+                res.sendFile(__dirname+"/Site/pacotes/pedido_pacote_concluido.html");
+            }).catch(function(erro){
+                res.send("valores não foram inseridos <br>"+erro);
+            })
+        }else{
+            res.send("<h1>O pacote pedido não existe!</h1>");
+        }
+
+    }else{
+        switch(campos.item_pedido){
+            case "pacote de caixão":
+                res.redirect("/pacote-caixao?alerta=1");
+                break;
+
+            case "pacote de urna":
+                res.redirect("/pacote-urna?alerta=1");
+                break;
+
+            case "pacote de cápsula":
+                res.redirect("/pacote-capsula?alerta=1");
+                break;
+
+            default:
+                res.send("<h1>O pacote pedido não existe!</h1>");
+        }
+    }
 })
 
 //_________________________________________________________
