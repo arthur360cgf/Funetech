@@ -376,6 +376,61 @@ app.get("/del-memoriais/:id", function(req, res){
         res.send("Memorial não apagado com sucesso!");
     })
 });
+app.get("/detalhes-memoriais", function(req, res){
+    insercaoDB.insercao_memorial.findAll({
+        
+          where: {"id": req.query.id}
+        }).then(function(memoriais){
+            res.render('detalhes_memoriais',{title: "Memoriais - Funetech",
+            memoriais: memoriais.map(memoriais => memoriais.toJSON())});
+       
+        })
+   
+  });
+app.get("/editar-memoriais", function(req, res){
+    insercaoDB.insercao_memorial.findAll({
+        
+            where: {"id": req.query.id}
+        }).then(function(memoriais){
+
+            res.render('editar_memoriais',{title: "Memoriais - Funetech",
+            memoriais: memoriais.map(memoriais => memoriais.toJSON())});
+       
+        })
+   
+  });
+app.post("/atualizar-memoriais/:id", function(req,res){
+    
+    insercaoDB.insercao_memorial.update({
+      
+        
+        nome: req.body.nome,
+        imagem: req.body.imagemFalecido,
+        local_nascimento: req.body.localNasc,
+        data_nascimento: req.body.dataNasc,
+        local_falecimento: req.body.localFale,
+        data_falecimento: req.body.dataFale,
+        breve_mensagem: req.body.mensagem,
+        biografia: req.body.biografia,
+        link_video_de_homenagem: req.body.videoDeHomenagem,
+        
+    },{where: {'id': req.params.id}
+     
+     
+    }).then(function(){
+        res.redirect(('/adm-memoriais'));
+    }).catch(function(erro){
+        res.send("valores não foram inseridos <br>"+erro);
+    })
+    
+    /*db.query('UPDATE memoriais SET nome = ?,imagem = ?,local_nascimento = ?,data_nascimento = ?,local_falecimento = ?,data_falecimento = ?,breve_mensagem = ?,biografia = ?,link_video_de_homenagem = ? WHERE id = ?',[req.body.nome,req.body.imagemFalecido,req.body.localNasc,req.body.dataNasc,req.body.localFale,req.body.dataFale,req.body.mensagem,req.body.biografia,req.body.videoDeHomenagem,req.params.id],function(erro){
+        if(erro){
+            res.status(200).send('Erro'+ erro)
+        }
+        res.redirect('adm_memoriais')
+    }
+   )*/
+})
 app.listen(porta, () => {
     console.log("Online na porta "+porta+"\n");
 })
