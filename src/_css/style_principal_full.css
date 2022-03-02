@@ -148,6 +148,7 @@ input[type=submit]:hover, .botao:hover, button:hover{
 .divisor{
     background-color: black;
     height: 1px;
+    width: 100%;
     position: relative; 
     top: -15px;
 }
@@ -193,6 +194,7 @@ input[type=submit]:hover, .botao:hover, button:hover{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 5px;
+    flex-grow: 1;
 }
 
 .pesquisa{
