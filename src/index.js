@@ -213,6 +213,12 @@ app.post("/pedido-concluido", function(req,res){
 //_________________________________________________________
 //3 - ROTAS DOS PRODUTOS E PACOTES DISPONIVEIS VINDOS DO BD
 app.get("/itens-a-venda", function(req, res) {
+    var AvisoCamposNaoPreenchidos;
+        if (req.query.alerta==1){
+            AvisoCamposNaoPreenchidos="block";
+        }else{
+            AvisoCamposNaoPreenchidos="none";
+        }
     
 
     //select * from produtos where quantidade_disponivel>0;
@@ -235,6 +241,7 @@ app.get("/itens-a-venda", function(req, res) {
             //VAI RENDERIZAR OS ITENS DAS DUAS TABELAS
             res.render('itens_a_venda',
                 {title: "Itens a Venda - Funetech",
+                 aviso: AvisoCamposNaoPreenchidos,
                  produtos: produtos.map(produtos => produtos.toJSON()),
                  servicos: servicos.map(servicos => servicos.toJSON())
                 }
@@ -246,57 +253,63 @@ app.get("/itens-a-venda", function(req, res) {
 //COMPRAS DE ITENS DA PAGINA DE ITENS A VENDA
 app.post("/pedido-de-itens-concluido", function(req,res){
     //console.log(req.body.localFale);
-    insercaoDB.insercao_compras.create({
-        nome_comprador: req.body.nome_comprador,
-        item_pedido: req.body.item_pedido,
-        telefone: req.body.telefone_comprador,
-        email: req.body.email_comprador,
-    }).then(function(){
+    const campos=req.body;
 
-        //res.send("valores inseridos com sucesso");
-        console.log("\n\nForam inseridos na tabela 'compras' os seguintes dados: \n");
-        console.log(req.body);
+    if (campos.nome_comprador!="" && campos.telefone_comprador!="" && campos.email_comprador!=""){
+        insercaoDB.insercao_compras.create({
+            nome_comprador: req.body.nome_comprador,
+            item_pedido: req.body.item_pedido,
+            telefone: req.body.telefone_comprador,
+            email: req.body.email_comprador,
+        }).then(function(){
 
-        //PEGANDO O ID DO ULTIMO PEDIDO FEITO
-        //select * from compras order by createdAt desc limit 1;
-        insercaoDB.insercao_compras.findOne({
-            order:[
-                ['createdAt','DESC'],
-            ]
-        }).then(function(pedido){
-            // console.log("id da compra: ");
-            // console.log(pedido.id);
-        
-            //SOBRE O CARRINHO
-            var carrinho = req.body.StringCarrinho;
-            carrinho=carrinho.split(",") //SEPARA OS ITENS E QUANTIDADES
-            carrinho.pop(); //REMOVE A ULTIMA VIRGULA
-        
-            console.log(carrinho);
-        
-            var itensPedidos=[];
-            var quantidadesPedidas=[];
-        
-            for (var i=0;i<carrinho.length;i++){ //SEPARA OS ITENS DAS QUANTIDADES
-                if (i%2==0){
-                    itensPedidos.push(carrinho[i]);
-                }else{
-                    quantidadesPedidas.push(carrinho[i]);
+            //res.send("valores inseridos com sucesso");
+            console.log("\n\nForam inseridos na tabela 'compras' os seguintes dados: \n");
+            console.log(req.body);
+
+            //PEGANDO O ID DO ULTIMO PEDIDO FEITO
+            //select * from compras order by createdAt desc limit 1;
+            insercaoDB.insercao_compras.findOne({
+                order:[
+                    ['createdAt','DESC'],
+                ]
+            }).then(function(pedido){
+                // console.log("id da compra: ");
+                // console.log(pedido.id);
+            
+                //SOBRE O CARRINHO
+                var carrinho = req.body.StringCarrinho;
+                carrinho=carrinho.split(",") //SEPARA OS ITENS E QUANTIDADES
+                carrinho.pop(); //REMOVE A ULTIMA VIRGULA
+            
+                console.log(carrinho);
+            
+                var itensPedidos=[];
+                var quantidadesPedidas=[];
+            
+                for (var i=0;i<carrinho.length;i++){ //SEPARA OS ITENS DAS QUANTIDADES
+                    if (i%2==0){
+                        itensPedidos.push(carrinho[i]);
+                    }else{
+                        quantidadesPedidas.push(carrinho[i]);
+                    }
                 }
-            }
-        
-            for (var i=0;i<itensPedidos.length;i++){ //INSERE CADA ITEM COM SUA QUANTIDADE
-                // console.log("comprou "+quantidadesPedidas[i]+" de "+itensPedidos[i]);
-                insercaoDB.tabela_itensPedidos.create({
-                    nome_item: itensPedidos[i],
-                    quantidade_pedida: quantidadesPedidas[i],
-                    id_compra: pedido.id
-                });
-            }
-        
-            res.sendFile(__dirname+"/Site/pacotes/pedido_pacote_concluido.html");
+            
+                for (var i=0;i<itensPedidos.length;i++){ //INSERE CADA ITEM COM SUA QUANTIDADE
+                    // console.log("comprou "+quantidadesPedidas[i]+" de "+itensPedidos[i]);
+                    insercaoDB.tabela_itensPedidos.create({
+                        nome_item: itensPedidos[i],
+                        quantidade_pedida: quantidadesPedidas[i],
+                        id_compra: pedido.id
+                    });
+                }
+            
+                res.sendFile(__dirname+"/Site/pacotes/pedido_pacote_concluido.html");
+            })
         })
-    })
+    }else{
+        res.redirect("/itens-a-venda?alerta=1");
+    }
     
 })
 
