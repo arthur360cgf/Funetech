@@ -601,7 +601,16 @@ td{
      background-color: #ddd;
      /*content"width=device-width;*/
      margin: 10px;
+     padding: 10px;
+     border-radius: 20px;
   
+}
+
+.imagem-falecido-adm{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 /*MEMORIAL INDIVIDUAL*/

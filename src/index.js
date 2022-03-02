@@ -317,7 +317,9 @@ app.post("/pedido-de-itens-concluido", function(req,res){
 //4 ROTA DOS MEMORIAIS
 app.get("/memoriais", function(req, res) {
     insercaoDB.insercao_memorial.findAll().then(function(memorial){
-        res.render('memoriais', {memorial: memorial.map(memorial => memorial.toJSON())});
+        res.render('memoriais', {
+            title: "Memoriais Cadastrados - Funetech",
+            memorial: memorial.map(memorial => memorial.toJSON())});
     })
 });
 
