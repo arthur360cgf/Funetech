@@ -78,6 +78,8 @@ app.use(function(req,res,next){
     next()
 })
 
+//CONST PARA ROTAS QUE SO O ADM PODE ACESSAR
+const {eAdmin} = require("./helpers/eAdmin")
 /* --------------------------- ROTAS --------------------------- */
 
 //_____________________
@@ -377,7 +379,7 @@ app.get("/memorial", function(req, res) {
 });
 
 //ROTA 2.3.2 PAGINA DE MEMORIAS PARA O ADM
-app.get("/adm-memoriais",function(req,res){
+app.get("/adm-memoriais", eAdmin, function(req,res){
     //res.send("nada");
     insercaoDB.insercao_memorial.findAll({order :[['id','ASC']]}).then(function(memoriais){
         //res.render('adm_memoriais',
