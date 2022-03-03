@@ -1,8 +1,30 @@
-<h2>Bem vindo</h2>
-
 {{#if user}}
-<a href="/adm-memoriais">Memoriais</a><br>
-<a href="/logout">Sair</a>
+<div class="titulo">
+    <h2>Bem vindo, Administrador!</h2>
+    <p>Escolha abaixo quais dos dados deseja gerenciar:</p>
+</div>
+
+<div class="pre-container">
+    <div class="container container-login">
+        {{!-- <a href="/adm-memoriais">Gerenciar memoriais</a><br>
+        <a href="/adm-itens">Gerenciar itens a venda</a><br>
+        <a href="/adm-pedidos">Gerenciar pedidos</a><br>
+        
+        <br>
+        <a href="/logout">Sair da conta</a> --}}
+        <div class="botoes-adm">
+            <a href="/adm-memoriais"><button>Gerenciar Memoriais</button></a>
+            <a href="/adm-itens"><button>Gerenciar itens a venda</button></a>
+            <a href="/adm-pedidos"><button>Gerenciar pedidos</button></a>
+
+            <br><br><br>
+
+            <a href="/logout"><button>Sair da conta</button></a>
+        </div>
+    </div>
+</div>
+
 {{else}}
-<h2>Teste</h2>
+    <h2>Teste</h2>
+
 {{/if}}

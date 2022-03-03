@@ -541,7 +541,9 @@ app.get('/logout', (req,res) =>{
 //_______________
 //6 PAINEL DO ADM
 app.get('/inicio', (req,res)=>{
-    res.render("usuario/inicio")
+    res.render("usuario/inicio",{
+        title: "Dashboard - Funetech"
+    })
 })
 
 //_______________

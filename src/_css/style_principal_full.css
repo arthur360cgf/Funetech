@@ -753,3 +753,24 @@ td{
         justify-content: center;  
     }
 }
+
+/* ADM */
+
+
+@media screen and (min-width: 450px) {
+    .container-login{
+        width: 430px;
+    }
+
+    .pre-container{
+        display: grid;
+        justify-content: center;
+    }
+
+    
+}
+
+.botoes-adm button{
+    width: 90%;
+    margin: 10px;
+}
