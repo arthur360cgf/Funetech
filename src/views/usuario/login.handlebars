@@ -1,11 +1,25 @@
-<h2>Login: </h2>
-<div class="card">
-    <div class="card-body">
+<div class="titulo">
+    <h2>Login</h2>
+    <p>Faça login para acessar as funções de administrador.</p>
+</div>
+
+<div class="card container">
+    <div class="card-body pre-container">
+
+        {{#if error}}
+        <div class="alerta-campo-vazio" style="margin: 1rem 3rem;">
+            <h3>Erro ao fazer login!</h3>
+            <p class="alert alert-danger">{{error}}</p>
+        </div>
+        {{else}}
+        
+        {{/if}}
+
         <form action="/login" method="POST">
-            <label for="nome">Usuario: </label>
+            <label for="nome">Usuário: </label>
                 <input type="text" class="form-control" name="nome" required>
             <label for="senha">Senha: </label>    
-                <input type="password" class="form-control" name="senha" required>
+                <input type="password" class="form-control campo-login" name="senha" required>
             <button class="btn btn-success" type="submi">Entrar</button>
         </form>
     </div>

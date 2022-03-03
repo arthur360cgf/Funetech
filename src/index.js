@@ -520,7 +520,9 @@ app.post("/registro", (req, res) =>{
 })
 
 app.get('/login', (req,res) =>{
-    res.render("usuario/login")
+    res.render("usuario/login",{
+        title: "Login ADM - Funetech"
+    })
 })
 
 app.post('/login', function(req,res, next){
