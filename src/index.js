@@ -536,6 +536,11 @@ app.get('/logout', (req,res) =>{
     res.redirect('/inicio')
 })
 
+//_______________
+//6 PAINEL DO ADM
+app.get('/inicio', (req,res)=>{
+    res.render("usuario/inicio")
+})
 
 app.listen(porta, () => {
     console.log("Online na porta "+porta+"\n");
