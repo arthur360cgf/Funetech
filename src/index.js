@@ -542,6 +542,14 @@ app.get('/inicio', (req,res)=>{
     res.render("usuario/inicio")
 })
 
+//_______________
+//6 PÁGINA INICIAL
+app.get('/', (req,res)=>{
+    res.render('pagina_inicial',{
+        title: "Início - Funetech"
+    })
+})
+
 app.listen(porta, () => {
     console.log("Online na porta "+porta+"\n");
 })
