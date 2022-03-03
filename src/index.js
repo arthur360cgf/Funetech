@@ -36,6 +36,7 @@ app.use(bodyParser.json());
 
 //LIGACAO COM O BD
 const insercaoDB=require("../db/insercao_db");
+const Usuario = require('./models/usuario');
 
 //PARA FAZER COMPARACOES ENTRE NUMEROS
 const { Op } = require("sequelize");
@@ -48,6 +49,34 @@ app.use(express.static(path.join(__dirname,'_css')));
 app.use(express.static(path.join(__dirname,'Imagens')));
 app.use(express.static(path.join(__dirname,'Imagens/criadores')));
 app.use(express.static(path.join(__dirname,'_js')));
+
+//MENSAGENS(FLASH) E SESSAO
+const flash = require("connect-flash")
+const passport = require('passport')
+require("./config/auth")(passport)
+const session = require("express-session")
+
+//HASH PARA ENCRIPTAR SENHA
+const bcrypt = require('bcryptjs')
+
+app.use(session({
+    secret: "funerariafunetech",
+    resave: true, 
+    saveUninitialized: true
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
+
+//MIDLEWARE
+app.use(function(req,res,next){
+    res.locals.success_msg = req.flash("success_msg")
+    res.locals.error_msg = req.flash("error_msg")
+    res.locals.error = req.flash("error")
+    res.locals.user = req.user || null;
+    next()
+})
 
 /* --------------------------- ROTAS --------------------------- */
 
@@ -433,6 +462,62 @@ app.post("/atualizar-memoriais/:id", function(req,res){
     }
    )*/
 })
+
+//__________________________
+//5 ROTA DO REGISTRO E LOGIN
+app.get('/registro',(req,res) =>{
+    res.render("usuario/registro")
+})
+
+app.post("/registro", (req, res) =>{
+    var erros = []
+    
+    if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null){
+        erros.push({texto: "Nome inválido"})
+    }
+
+    if(!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null ){
+        erros.push({texto: "Senha inválida"})
+    }
+
+    if(req.body.senha.length < 8){
+        erros.push({texto: "Minimo de 8 caractéres"})
+    }
+
+    if(req.body.senha != req.body.senha2){
+        erros.push({texto: "As senhas são diferentes"})
+    }
+
+    if(erros.length > 0){
+        res.render("usuario/registro", {erros: erros})
+    }else{
+
+        const novoUsuario = new Usuario({
+            nome: req.body.nome,
+            senha: req.body.senha
+        })
+
+        bcrypt.genSalt(10, function(erro, salt){
+            bcrypt.hash(novoUsuario.senha, salt, function(erro, hash){
+                if(erro){
+                    req.flash("error_msg", "houve um errro durante o registro")
+                    res.redirect("/registro")
+                }
+
+                novoUsuario.senha = hash
+                novoUsuario.save().then(function(req,res){
+                    req.flash("success_msg", "Cadastro concluido")
+                    res.redirect("/inicio")
+                }).catch(function(err){
+                    req.flash("error_msg","Houve um erro no cadastro")
+                    res.redirect("/registro")
+                })
+            })
+        })
+    }
+})
+
+
 app.listen(porta, () => {
     console.log("Online na porta "+porta+"\n");
 })
