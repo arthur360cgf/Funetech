@@ -517,6 +517,23 @@ app.post("/registro", (req, res) =>{
     }
 })
 
+app.get('/login', (req,res) =>{
+    res.render("usuario/login")
+})
+
+app.post('/login', function(req,res, next){
+    passport.authenticate("local", {
+        successRedirect: "/inicio",
+        failureRedirect: "/login", 
+        failureFlash: true
+    })(req, res, next)
+})
+
+app.get('/logout', (req,res) =>{
+    req.logout()
+    res.redirect('/inicio')
+})
+
 
 app.listen(porta, () => {
     console.log("Online na porta "+porta+"\n");
