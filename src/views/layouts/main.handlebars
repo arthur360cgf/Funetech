@@ -23,7 +23,11 @@
                 </div>
         
         </header>
+    {{#if error}}
+        <div class="alert alert-danger">{{error}}</div>
+    {{else}}    
 
+    {{/if}}
     {{{body}}}
 
     <footer class="rodape">
