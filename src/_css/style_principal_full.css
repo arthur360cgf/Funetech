@@ -765,9 +765,11 @@ td{
     .pre-container{
         display: grid;
         justify-content: center;
-    }
+    }   
+}
 
-    
+.botoes-adm{
+    text-align: center;
 }
 
 .botoes-adm button{
