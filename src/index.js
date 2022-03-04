@@ -27,7 +27,7 @@ app.set('view engine', 'handlebars');
 PRA FUNCIONAR ENTAO É NECESSARIO COLOCAR ABAIXO './src/views'
 POIS ASSIM ELE PEGARÁ DO LOCAL CERTO :'Funetech/app/src/views'*/
 
-app.set('views', './views');
+app.set('views', './src/views');
 
 //CONFIGURACAO DO BODY PARSER
 const bodyParser=require("body-parser");
@@ -326,14 +326,14 @@ app.post("/pedido-de-itens-concluido", function(req,res){
                     }
                 }
             
-                for (var i=0;i<itensPedidos.length;i++){ //INSERE CADA ITEM COM SUA QUANTIDADE
-                    // console.log("comprou "+quantidadesPedidas[i]+" de "+itensPedidos[i]);
-                    insercaoDB.tabela_itensPedidos.create({
-                        nome_item: itensPedidos[i],
-                        quantidade_pedida: quantidadesPedidas[i],
-                        id_compra: pedido.id
-                    });
-                }
+                // for (var i=0;i<itensPedidos.length;i++){ //INSERE CADA ITEM COM SUA QUANTIDADE
+                //     // console.log("comprou "+quantidadesPedidas[i]+" de "+itensPedidos[i]);
+                //     insercaoDB.tabela_itensPedidos.create({
+                //         nome_item: itensPedidos[i],
+                //         quantidade_pedida: quantidadesPedidas[i],
+                //         id_compra: pedido.id
+                //     });
+                // }
             
                 res.sendFile(__dirname+"/Site/pacotes/pedido_pacote_concluido.html");
             })
@@ -465,9 +465,25 @@ app.post("/atualizar-memoriais/:id", function(req,res){
    )*/
 })
 
-app.get('/adm-itens', eAdmin, (req, res) =>{
-    res.render("usuario/itens")
-})
+app.get("/adm-pedidos", eAdmin , function(req, res){
+    insercaoDB.insercao_compras.findAll().then(function(compras){
+            res.render('adm_pedidos',
+            {title: "Pedidos Realizados - Funetech",
+             compras: compras.map(compras => compras.toJSON())});
+    })
+});
+
+app.get("/excluir-pedido/:id",eAdmin , function(req, res){
+    insercaoDB.insercao_compras.destroy({
+        where: {"id": req.params.id}
+    }).then(function(){
+        res.redirect(('/adm-pedidos'));
+    }).catch(function(erro){
+        res.send("Compra não pode ser concluida!");
+    })
+});
+
+
 //__________________________
 //5 ROTA DO REGISTRO E LOGIN
 app.get('/registro',(req,res) =>{

@@ -1,0 +1,120 @@
+<div class="titulo">
+    <h2>Itens Pedidos</h2>
+    <p>Administrador,aqui você pode gerenciar os pedidos feitos até o momento</p>
+</div>
+
+
+<div class="pre-container" id="pre-container">
+    {{#each compras}}
+    <div class="container">
+        <div class="comprador">
+            <b><p>Nome do cliente:</p></b>
+            {{nome_comprador}}
+            <br><br>
+        </div>
+        <div>
+            
+            <b><p>Telefone de contato:</p></b>
+            {{telefone}}
+            <br><br>
+
+            <b><p>Email:</p></b>
+            {{email}}
+            <br><br><hr><br>
+
+            <div style="display: none;">
+                <p><h4>{{item_pedido}}</h4></p>
+            </div>
+    
+            <div>
+                <b><p>Item(s) Pedidos:</p></b>
+                {{!-- {{item_pedido}} --}}
+                <div class="item-individual item-individual-adm" id="item-individual">
+                    
+                </div>
+                <br><br>
+            </div>
+        </div>
+
+
+        <div class="botoes-adm-pedidos">
+            <br>
+            <a href="/"><button>Concluir Pedido&nbsp<i class='fa-solid fa-check'
+                        style='font-size:14px;color:branco'></i></button></a>
+            <a href="/excluir-pedido/{{id}}"><button>Excluir Pedido&nbsp<i class='fa-solid fa-trash'
+                        style='font-size:14px;color:branco'></i></button></a>
+        </div>
+        <br>
+    </div>
+    {{/each}}
+</div>
+
+{{!-- <script src="main.js"></script> --}}
+<script>
+    function mostraDetalhes(){
+        var campo_de_compra, todosOsItensComprados, itens, campo_item_comprado, campo_do_item;
+    
+        itens=document.getElementById("pre-container");
+        campo_de_compra=itens.getElementsByClassName("container");
+
+        campo_do_item=document.getElementsByClassName("item-individual");
+
+        for (var i=0;i<campo_de_compra.length;i++){
+            todosOsItensComprados = campo_de_compra[i].getElementsByTagName("h4")[0].textContent;
+            //console.log(todosOsItensComprados);
+            //console.log(campo_de_compra.length);
+            
+            todosOsItensComprados=todosOsItensComprados.split(",");
+            if (todosOsItensComprados.length>1){
+                todosOsItensComprados.pop();
+
+            }
+            //todosOsItensComprados.pop();
+            console.log(todosOsItensComprados);
+            //campo_de_compra[i].parentElement.insertBefore(todosOsItensComprados,campo_de_compra[i]);
+            campo_do_item[i].innerHTML+=`
+                <br>
+                <div class="justify-adm-pedidos" style="margin: 0 17px";>
+                    <div>
+                        <b><p>Nome do Item</p></b>
+                    </div>
+                    
+                    <div>
+                        <b><p>Quantidade<p></b>
+                    </div>
+                </div>
+            `;
+            if(todosOsItensComprados.length>2){
+                for (var j=0;j<todosOsItensComprados.length;j+=2){
+                    console.log("entro no for");
+                    console.log(todosOsItensComprados[j]);
+                    campo_do_item[i].innerHTML+=`
+                            <div class="justify justify-adm-pedidos">
+                                <div>
+                                    <p>`+todosOsItensComprados[j]+`</p>
+                                </div>
+                                
+                                <div>
+                                    <p>`+todosOsItensComprados[j+1]+`<p>
+                                </div>
+                            </div>
+                        `;
+                }
+                //campo_do_item[i].innerHTML=todosOsItensComprados;
+            }else{
+                campo_do_item[i].innerHTML=`
+                            <div class="justify">
+                                <p>`+todosOsItensComprados+`<p>
+                            </div>
+                        `;
+            }
+
+            console.log(campo_do_item[i].innerHTML);
+            console.log("========");
+
+        }
+    }
+
+    mostraDetalhes();
+</script>
+
