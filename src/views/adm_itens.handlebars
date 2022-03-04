@@ -1,0 +1,84 @@
+<h2>Intens a Venda</h2>
+<h5>Administrador,aqui você pode gerenciar todos itens que estão a venda</h5>
+<div id="titulo-itens"><p><b>Produtos</b></p></div>
+ {{#each produtos}}
+ <div id="justify-itens">
+      <div id="nome-do-iten-adm">
+          <label><b>{{nome_item}}</b></label>
+      </div>   
+      
+     
+          
+          <div>
+                <a href="{{caminho_da_imagem}}"> <img class="imagem-justify" src="{{caminho_da_imagem}}" alt="produto"> </a>
+          </div>
+          
+         
+
+         
+          
+<div id="buttoms-itens">
+          <a href="/del-produto/{{id}}"><button>Apagar&nbsp<i class='fas fa-trash' style='font-size:14px;color:branco'></i></button></a>
+          <a href="/detalhes-produto?id={{id}}"><button>Detalhes&nbsp<i class='fa fa-folder-open' style='font-size:14px;color:branco' ></i></button></a>
+          <a href="/editar-produtos?id={{id}}"><button>Editar&nbsp<i class='fas fa-edit' style='font-size:14px;color:branco'></i></button></a>
+          
+</div>
+</div> 
+{{/each}}    
+</div>          
+
+
+<div id="titulo-itens"><p><b>Serviços</b></p></div>  
+{{#each servicos}}
+
+
+<div id="justify-itens">
+      <div id="nome-do-iten-adm">
+          <label><b>{{nome_item}}</b></label>
+      </div>   
+      
+     
+          
+          <div>
+                <a href="{{caminho_da_imagem}}"> <img class="imagem-justify" src="{{caminho_da_imagem}}" alt="produto"> </a>
+          </div>
+          
+         
+
+         
+          
+<div id="buttoms-itens">
+          <a href="/del-servico/{{id}}"><button>Apagar&nbsp<i class='fas fa-trash' style='font-size:14px;color:branco'></i></button></a>
+          <a href="/detalhes-servico?id={{id}}"><button>Detalhes&nbsp<i class='fa fa-folder-open' style='font-size:14px;color:branco' ></i></button></a>
+          <a href="/editar-servicos?id={{id}}"><button>Editar&nbsp<i class='fas fa-edit' style='font-size:14px;color:branco'></i></button></a>
+          
+</div>
+</div> 
+{{/each}}    
+</div>          
+          
+              
+        
+      
+       
+     
+     
+   
+
+    
+     
+     
+
+
+
+
+
+     
+
+          
+    
+    
+
+
+<script src="main.js"></script>
+

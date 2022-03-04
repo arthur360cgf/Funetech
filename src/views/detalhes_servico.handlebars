@@ -1,0 +1,34 @@
+<div id="titulo-detalhes">
+
+
+{{#each servicos}}
+
+          
+                   
+
+    
+ <div id="titulo-produtos"><p>{{nome_item}}</p></div>
+        
+</div>          
+<div id="detalhes-produtos-adm">
+               
+               <div id ="imagem-itens-adm"><a href="{{caminho_da_imagem}}"> <img class="imagem-itens-adm" src="{{caminho_da_imagem}}" alt="produto"> </a><div>
+               <div id="tab-prodt">
+                     <div id ="desc-produto"><p>Nome</div>
+                     <div id ="nome-itens-adm">{{nome_item}}</div>
+               </div>
+               <div id="tab-prodt">
+                     <div id ="desc-produto"><p>Quantidade</div>
+               <div id="quantidade-itens-adm">{{quantidade_disponivel}}</div>
+               </div>
+               <div id="tab-prodt">
+                    <div id ="desc-produto"><p>Preco</div>
+                    <div id="preco">{{preco}}</div>
+               </div>
+               
+               
+     
+
+{{/each}}
+</div>
+
