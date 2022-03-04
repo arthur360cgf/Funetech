@@ -596,6 +596,96 @@ app.post("/atualizar-servicos/:id", function(req,res){
     }
    )*/
 })
+app.use("/create-produtos",function(req,res){
+    
+    /*VERIFICA SE O AVISO ESTÁ NA QUERY COM "1",
+    SE ESTIVER COLOCA A DIV COM O AVISO COMO "BLOCK"
+    */
+    var AvisoCamposNaoPreenchidos;
+    if (req.query.alerta==1){
+        AvisoCamposNaoPreenchidos="block";
+    }else{
+        AvisoCamposNaoPreenchidos="none";
+    }
+
+    res.render('create_produto',
+                {title: "Cadastro Produto - Funetech",
+                aviso: AvisoCamposNaoPreenchidos}
+            );
+})
+app.post("/isercao-produto", function(req,res){
+    
+    insercaoDB.tabela_produtos.create({
+      
+        
+        nome_item: req.body.nomeitem,
+        caminho_da_imagem: req.body.caminhodaimagem,
+        preco: req.body.preco,
+        quantidade_disponivel: req.body.quantidadedisponivel,
+        
+        
+    },{where: {'id': req.params.id}
+     
+     
+    }).then(function(){
+        res.redirect(('/adm-itens'));
+    }).catch(function(erro){
+        res.send("valores não foram inseridos <br>"+erro);
+    })
+    
+    /*db.query('UPDATE memoriais SET nome = ?,imagem = ?,local_nascimento = ?,data_nascimento = ?,local_falecimento = ?,data_falecimento = ?,breve_mensagem = ?,biografia = ?,link_video_de_homenagem = ? WHERE id = ?',[req.body.nome,req.body.imagemFalecido,req.body.localNasc,req.body.dataNasc,req.body.localFale,req.body.dataFale,req.body.mensagem,req.body.biografia,req.body.videoDeHomenagem,req.params.id],function(erro){
+        if(erro){
+            res.status(200).send('Erro'+ erro)
+        }
+        res.redirect('adm_memoriais')
+    }
+   )*/
+})
+app.use("/create-servico",function(req,res){
+    
+    /*VERIFICA SE O AVISO ESTÁ NA QUERY COM "1",
+    SE ESTIVER COLOCA A DIV COM O AVISO COMO "BLOCK"
+    */
+    var AvisoCamposNaoPreenchidos;
+    if (req.query.alerta==1){
+        AvisoCamposNaoPreenchidos="block";
+    }else{
+        AvisoCamposNaoPreenchidos="none";
+    }
+
+    res.render('create_servico',
+                {title: "Cadastro Produto - Funetech",
+                aviso: AvisoCamposNaoPreenchidos}
+            );
+})
+app.post("/isercao-servico", function(req,res){
+    
+    insercaoDB.tabela_servicos.create({
+      
+        
+        nome_item: req.body.nomeitem,
+        caminho_da_imagem: req.body.caminhodaimagem,
+        preco: req.body.preco,
+        quantidade_disponivel: req.body.quantidadedisponivel,
+        
+        
+    },{where: {'id': req.params.id}
+     
+     
+    }).then(function(){
+        res.redirect(('/adm-itens'));
+    }).catch(function(erro){
+        res.send("valores não foram inseridos <br>"+erro);
+    })
+    
+    /*db.query('UPDATE memoriais SET nome = ?,imagem = ?,local_nascimento = ?,data_nascimento = ?,local_falecimento = ?,data_falecimento = ?,breve_mensagem = ?,biografia = ?,link_video_de_homenagem = ? WHERE id = ?',[req.body.nome,req.body.imagemFalecido,req.body.localNasc,req.body.dataNasc,req.body.localFale,req.body.dataFale,req.body.mensagem,req.body.biografia,req.body.videoDeHomenagem,req.params.id],function(erro){
+        if(erro){
+            res.status(200).send('Erro'+ erro)
+        }
+        res.redirect('adm_memoriais')
+    }
+   )*/
+})
 app.get("/adm-pedidos", eAdmin , function(req, res){
     insercaoDB.insercao_compras.findAll().then(function(compras){
             res.render('adm_pedidos',
