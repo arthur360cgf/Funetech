@@ -12,6 +12,7 @@ body {
   height: 60px;
   }
   main, .content {
+      border-image-width: 266px;
   margin: 0 auto;
   width: 980px;
   position: relative;
@@ -35,6 +36,7 @@ body {
       width: 100%;
       float: left;
       position: relative;
+      text-align: center;
   }
   button.slick-prev {
       font-size: 0px;
@@ -92,14 +94,19 @@ body {
       padding-left: 10px;
       display: inline-block;
   }
+
+  .content{
+      image-rendering:252.2px  160.33px ;
+  }
   
-  .texto-destaque {
+  .texto-destaque p{
       text-align: center;
   }
   .texto-destaque strong {
       color: #646464;
   }
   .texto-destaque h1 {
+      text-align: center;
       text-transform: uppercase;
       font-size: 30px;
       color: #818181;
