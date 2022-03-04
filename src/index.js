@@ -487,9 +487,10 @@ app.get("/excluir-pedido/:id",eAdmin , function(req, res){
 //__________________________
 //5 ROTA DO REGISTRO E LOGIN
 app.get('/registro',(req,res) =>{
-    res.render("usuario/registro")
+    res.render("usuario/registro", {
+        title: "Registro"
+    })
 })
-
 app.post("/registro", (req, res) =>{
     var erros = []
     
