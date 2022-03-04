@@ -28,24 +28,22 @@
         </header>-->
 
     <!--BARRA DE NAVEGAÇÃO-->
-    <header>
-      <nav>
-        <a class="logo" href="/">Funetech</a>
-        <div class="mobile-menu">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
-        <ul class="nav-list">
-          <li><a href="/formulario-memorial">Cadastre-se</a> </li>
-          <li><a href="/pacote">Pacotes</a> </li>
-          <li><a href="/itens-a-venda">Produtos</a> </li>
-          <li><a href="/memoriais">Memoriais</a> </li>
-
-        </ul>
-      </nav>
-    </header>
-    <script src="navbar.js"></script>
+<body>
+  <header id="header">
+    <a id="logo" href="">Funetech</a>
+    <nav id="nav">
+      <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">Menu
+        <span id="hamburger"></span>
+      </button>
+      <ul id="menu" role="menu">
+        <li><a href="/pacotes">Pacotes</a></li>
+        <li><a href="/itens-a-venda">Produtos</a></li>
+        <li><a href="/formulario-memorial">Cadastro</a></li>
+        <li><a href="/memoriais">Memoriais</a></li>
+      </ul>
+    </nav>
+  </header>
+  <script src="./navbar.js"></script>
     {{{body}}}
 
     <footer class="rodape">
