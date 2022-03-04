@@ -496,6 +496,7 @@ input[type=number]::-webkit-outer-spin-button {
     
 }
 #primeiro-titulo{
+    padding: auto;
     margin-top: 5%;
     margin-left: 30%;
     margin-right: 30%;
@@ -520,6 +521,7 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 5px 10px;
 }   
 #edicao-detalhes{
+    
     align-items: center;
     border-color: black;
     border-style: double;
@@ -527,10 +529,17 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: #ddd;
     text-align: center;
 }    
-   
+#edicao-detalhes-produtos{
+    align-items: center;
+    border-color: black;
+    border-style: double;
+    border-width: 5px;
+    background-color: #ddd;
+    text-align: center;
+}  
 
 #tabela-detalhes{
-    
+    padding: auto;
     align-items: center;
     border-style: double;
     border-width: 5px;
@@ -568,7 +577,11 @@ input[type=number]::-webkit-outer-spin-button {
     
     
 }
+#detalhes-produtos-adm{
+    align-items: center;
+}
 table{
+    padding: 5px;
     align-items: center;
     
     display:inline-table;
@@ -586,7 +599,7 @@ table td{
     
 }
 th,td{
-    padding:0.5% 1%;
+    padding:5px;
 }
 th{
     text-align: center;
@@ -618,14 +631,162 @@ td{
      border-radius: 20px;
   
 }
+#justify-itens{
+    align-items: center;
+    
+    display: inline-block;
+    width: auto;
+    height:auto;
+    padding: auto;
+    justify-content:space-between;
+    border: 1px solid black;
+    background-color: #ddd;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    margin-inline-end: 4%;
+    margin-inline-start: 6%;
+}
+#buttoms-itens{
+    display:inline;
+    justify-content:space-between;
+    align-items: center;
+    justify-items: center;
+    
+    
+    text-align: center;
+    justify-content:space-between;
+}
+#buttoms-itens button{
+    border-radius: 12px;
+    padding: 14px;
+    transition-duration: 0.4s;
+}
+#buttoms-itens button:hover{
+    background-color: #c8c8c8;
+}
+.imagem-justify{
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 3%;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    object-fit: cover;
+    /*border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 30px;
+    margin: 20px;
+    display: inline-block; 
+    margin-bottom: 3rem;
+    width: 360px;
+    height: 400px;*/
+}
+#nome-do-iten-adm{
+    
+    border-radius: 5px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    padding: 7%;
+    padding-left: 10.5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    
+    width: auto;
+    height: auto;
+    
+}
 
+#titulo-itens {
+     margin-bottom: 4%;
+     font-size: 400%;
+     text-align: center;
+}
 .imagem-falecido-adm{
     height: 40px;
     width: 40px;
     object-fit: cover;
     border-radius: 50%;
 }
+#detalhes-produtos-adm{
+    
+    border-width: 5px;
+    background-color: #ddd;
+    text-align: center;
+    
+}
+.imagem-itens-adm{
+    margin-top: 5%;
+    border-style: double;
+    border-width: 5px;
+    height: 50%;
+    width: 50%;
+    align-items: center;
+    border-color:black;
+    display:inline-table;
+    text-align: center;
 
+   
+
+    border-radius: 5%;
+}
+#nome-itens-adm{
+    
+    
+    height: 7%;
+    width: 100%;
+    font-size: 100%;
+    text-justify: auto;
+    
+    background-color: #00b637;
+    color:white;
+    padding: 2%;
+}
+#quantidade-itens-adm{
+    
+   
+    height: 7%;
+    width: 100%;
+    font-size: 100%;
+    text-justify: auto;
+    
+    background-color: #00b637;
+    color:white;
+    padding: 2%;
+}
+#preco{
+    
+    height: 7%;
+    width: 100%;
+    font-size: 100%;
+    text-align: center;
+    
+    background-color: #00b637;
+    color:white;
+    padding: 2%;
+}
+#desc-produto{
+    
+    
+    height: 7%;
+    width: 100%;
+    font-size: 100%;
+    text-align: center;
+    
+    background-color: #ddd;
+    color:black;
+    padding: 2%;
+}
+#tab-prodt{
+    text-align: center;
+    margin-top: 5%;
+    border: 1px solid black;
+    border: 3px solid;
+}
 /*MEMORIAL INDIVIDUAL*/
 /* .pre-container-memorial{
 
