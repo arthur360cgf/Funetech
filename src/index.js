@@ -145,7 +145,9 @@ app.post("/insercao-concluida", function(req,res){
 
 //ROTA 2.1 - PÁGINA PRINCIPAL DOS PACOTES
 app.use("/pacotes",function(req,res,next){
-    res.sendFile(__dirname+"/Site/pacotes/pacote.html");
+    res.render('pacotes',
+                {title: "Pacote Disponiveis - Funetech"}
+            );
 })
 
 //ROTA 2.2 - PÁGINA DE PACOTE DE CAIXAO
