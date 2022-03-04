@@ -27,7 +27,7 @@ app.set('view engine', 'handlebars');
 PRA FUNCIONAR ENTAO É NECESSARIO COLOCAR ABAIXO './src/views'
 POIS ASSIM ELE PEGARÁ DO LOCAL CERTO :'Funetech/app/src/views'*/
 
-app.set('views', './src/views');
+app.set('views', './views');
 
 //CONFIGURACAO DO BODY PARSER
 const bodyParser=require("body-parser");
@@ -465,6 +465,9 @@ app.post("/atualizar-memoriais/:id", function(req,res){
    )*/
 })
 
+app.get('/adm-itens', eAdmin, (req, res) =>{
+    res.render("usuario/itens")
+})
 //__________________________
 //5 ROTA DO REGISTRO E LOGIN
 app.get('/registro',(req,res) =>{
