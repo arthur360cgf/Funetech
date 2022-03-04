@@ -6,13 +6,16 @@
   "license": "MIT",
   "scripts": {
     "memorial": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "mocha"
   },
   "devDependencies": {
+    "mocha": "^9.2.1",
     "nodemon": "^2.0.15",
     "sucrase": "^3.20.3"
   },
   "dependencies": {
+    "assert": "^2.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",
     "connect-flash": "^0.1.1",
@@ -25,6 +28,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg": "^8.7.3",
+    "selenium-webdriver": "^4.1.1",
     "sequelize": "^6.13.0"
   }
 }
