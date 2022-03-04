@@ -464,7 +464,138 @@ app.post("/atualizar-memoriais/:id", function(req,res){
     }
    )*/
 })
+app.get("/adm-itens", eAdmin,function (req, res){
+    insercaoDB.tabela_produtos.findAll().then(function(produtos){
+        insercaoDB.tabela_servicos.findAll().then(function(servicos){
+             res.render('adm_itens',
+                {title: "Itens a Venda - Funetech",
+                 
+                 produtos: produtos.map(produtos => produtos.toJSON()),
+                 servicos: servicos.map(servicos => servicos.toJSON())
+                 }
+            ) 
+        })
+    })
+})
+app.get("/del-produto/:id", eAdmin, function(req, res){
+    insercaoDB.tabela_produtos.destroy({
+        where: {"id": req.params.id}
+    }).then(function(){
+        res.redirect(('/adm-itens'));
+    }).catch(function(erro){
+        res.send("Produto não apagado com sucesso!");
+    })
+});
 
+app.get("/del-servico/:id", eAdmin, function(req, res){
+    insercaoDB.tabela_servicos.destroy({
+        where: {"id": req.params.id}
+    }).then(function(){
+        res.redirect(('/adm-itens'));
+    }).catch(function(erro){
+        res.send("Produto não apagado com sucesso!");
+    })
+});
+app.get("/detalhes-produto", function(req, res){
+    insercaoDB.tabela_produtos.findAll({
+        
+          where: {"id": req.query.id}
+        }).then(function(produtos){
+            res.render('detalhes_produto',{title: "Detalhes Servico - Funetech",
+            produtos: produtos.map(produtos => produtos.toJSON())});
+       
+        })
+   
+  });
+app.get("/detalhes-servico", function(req, res){
+    insercaoDB.tabela_servicos.findAll({
+        
+          where: {"id": req.query.id}
+        }).then(function(servicos){
+            res.render('detalhes_servico',{title: "Detalhes Servico - Funetech",
+            servicos: servicos.map(servicos => servicos.toJSON())});
+       
+        })
+   
+  });
+app.get("/editar-produtos", function(req, res){
+    insercaoDB.tabela_produtos.findAll({
+        
+            where: {"id": req.query.id}
+        }).then(function(produtos){
+
+            res.render('editar_produtos',{title: "Editar Produtos - Funetech",
+            produtos: produtos.map(produtos => produtos.toJSON())});
+        })
+   
+});
+app.post("/atualizar-produtos/:id", function(req,res){
+    
+    insercaoDB.tabela_produtos.update({
+      
+        
+        nome_item: req.body.nomeitem,
+        caminho_da_imagem: req.body.caminhodaimagem,
+        preco: req.body.preco,
+        quantidade_disponivel: req.body.quantidadedisponivel,
+        
+        
+    },{where: {'id': req.params.id}
+     
+     
+    }).then(function(){
+        res.redirect(('/adm-itens'));
+    }).catch(function(erro){
+        res.send("valores não foram inseridos <br>"+erro);
+    })
+    
+    /*db.query('UPDATE memoriais SET nome = ?,imagem = ?,local_nascimento = ?,data_nascimento = ?,local_falecimento = ?,data_falecimento = ?,breve_mensagem = ?,biografia = ?,link_video_de_homenagem = ? WHERE id = ?',[req.body.nome,req.body.imagemFalecido,req.body.localNasc,req.body.dataNasc,req.body.localFale,req.body.dataFale,req.body.mensagem,req.body.biografia,req.body.videoDeHomenagem,req.params.id],function(erro){
+        if(erro){
+            res.status(200).send('Erro'+ erro)
+        }
+        res.redirect('adm_memoriais')
+    }
+   )*/
+})
+app.get("/editar-servicos", function(req, res){
+    insercaoDB.tabela_servicos.findAll({
+        
+            where: {"id": req.query.id}
+        }).then(function(servicos){
+
+            res.render('editar_servicos',{title: "Editar Servicos - Funetech",
+            servicos: servicos.map(servicos => servicos.toJSON())});
+        })
+   
+});
+app.post("/atualizar-servicos/:id", function(req,res){
+    
+    insercaoDB.tabela_servicos.update({
+      
+        
+        nome_item: req.body.nomeitem,
+        caminho_da_imagem: req.body.caminhodaimagem,
+        preco: req.body.preco,
+        quantidade_disponivel: req.body.quantidadedisponivel,
+        
+        
+    },{where: {'id': req.params.id}
+     
+     
+    }).then(function(){
+        res.redirect(('/adm-itens'));
+    }).catch(function(erro){
+        res.send("valores não foram inseridos <br>"+erro);
+    })
+    
+    /*db.query('UPDATE memoriais SET nome = ?,imagem = ?,local_nascimento = ?,data_nascimento = ?,local_falecimento = ?,data_falecimento = ?,breve_mensagem = ?,biografia = ?,link_video_de_homenagem = ? WHERE id = ?',[req.body.nome,req.body.imagemFalecido,req.body.localNasc,req.body.dataNasc,req.body.localFale,req.body.dataFale,req.body.mensagem,req.body.biografia,req.body.videoDeHomenagem,req.params.id],function(erro){
+        if(erro){
+            res.status(200).send('Erro'+ erro)
+        }
+        res.redirect('adm_memoriais')
+    }
+   )*/
+})
 app.get("/adm-pedidos", eAdmin , function(req, res){
     insercaoDB.insercao_compras.findAll().then(function(compras){
             res.render('adm_pedidos',
