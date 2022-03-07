@@ -968,7 +968,27 @@ td{
     text-align: center;
 }
 
+
 .botoes-adm button{
     width: 90%;
     margin: 10px;
+}
+
+.botoes-adm-pedidos{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.botoes-adm-pedidos button{
+    width: 10rem;
+    margin: 5px;
+}
+
+.item-individual-adm{
+    display: block;
+}
+
+.justify-adm-pedidos{
+    display: flex;
+    justify-content: space-between;
 }
