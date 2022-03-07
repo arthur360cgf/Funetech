@@ -1,5 +1,7 @@
-<h2>Intens a Venda</h2>
-<h5>Administrador,aqui você pode gerenciar todos itens que estão a venda</h5>
+<div class="tituloparaadm">
+    <h2>Intens a Venda</h2>
+    <h5>Administrador,aqui você pode gerenciar todos itens que estão a venda</h5>
+</div>
 <div id="titulo-itens"><p><b>Produtos</b></p></div>
  {{#each produtos}}
  <div id="justify-itens">
@@ -26,7 +28,7 @@
 </div> 
 {{/each}}    
 </div>          
-<a href="/create-produtos"><button>Adicionar Produto&nbsp<i class='fas fa-edit' style='font-size:14px;color:branco' ></i></button></a>
+       <div id="botaocriar"><a href="/create-produtos"><button>Adicionar Produto&nbsp<i class='fas fa-edit' style='font-size:14px;color:branco' ></i></button></a></div>
 
 <div id="titulo-itens"><p><b>Serviços</b></p></div>  
 {{#each servicos}}
@@ -57,7 +59,7 @@
 
 {{/each}}    
 </div>
-<a href="/create-servico"><button>Adicionar Serviço&nbsp<i class='fas fa-edit' style='font-size:14px;color:branco' ></i></button></a>          
+<div id ="botaocriar"><a href="/create-servico"><button>Adicionar Serviço&nbsp<i class='fas fa-edit' style='font-size:14px;color:branco' ></i></button></a></div>>          
           
               
         
