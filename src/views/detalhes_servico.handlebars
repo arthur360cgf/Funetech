@@ -9,59 +9,41 @@
     
  <div id="titulo-produtos"><p>{{nome_item}}</p></div>
         
-</div>          
+</div>
 <div id="detalhes-produtos-adm">
                
                <div id ="imagem-itens-adm"><a href="{{caminho_da_imagem}}"> <img class="imagem-itens-adm" src="{{caminho_da_imagem}}" alt="produto"> </a><div>
-               <table>      
-                   <tr>
-                              
-                              <th>Nome do Intem&nbsp <i class='fas fa-dolly-flatbed'style='font-size:48px;color:black'></i></th>
-                              
-                         
-                                                                                                                                      
-                             
-                         </tr>
-                         <tr>
-                              <td>{{nome_item}}</td>
-                         </tr>     
-                    
-               </table>     
-               <table>      
-                   <tr>
-                              
-                              <th>Quantidade &nbsp <i class='fa fa-sort-amount-asc'style='font-size:48px;color:black'></i></th>
-                              
-                         
-                                                                                                                                      
-                             
-                         </tr>
-                         <tr>
-                              <td>{{quantidade_disponivel}}</td>
-                         </tr>     
-                    
-               </table>     
-              
-               <table>      
-                   <tr>
-                              
-                              <th>Preco &nbsp <i class='fas fa-money-check-alt'style='font-size:48px;color:black'></i></th>
-                              
-                         
-                                                                                                                                      
-                             
-                         </tr>
-                         <tr>
-                              <td>{{preco}}</td>
-                         </tr>     
-                    
-               </table>     
-              
                
-               
-               
-     
+</div>
+<div class="pre-container" id="pre-container">
+    
+    <div class="container">
+        <div class="comprador">
+            <b><p>Nome do Intem:</p></b>
+            {{nome_item}}
+           <br><br><hr><br>
+        
+        
+            
+            <b><p>Quantidade:</p></b>
+            {{quantidade_disponivel}}
+            <br><br><hr><br>
 
+            <b><p>Email:</p></b>
+            {{email}}
+            <br><br><hr><br>
+            
+            <b><p>Preco:</p></b>
+            {{preco}}
+            
+            
+      </div>
+
+
+        
+        
+    </div>
 {{/each}}
+
 </div>
 
