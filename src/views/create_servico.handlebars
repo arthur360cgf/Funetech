@@ -5,8 +5,11 @@
 
        
 
+       
+       
+
         <div id="titulo-editar">
-            <h2>Criar Novo Serviço  </h2>
+            <h2> Criar Serviço</h2>
             
         </div>
       
@@ -17,29 +20,30 @@
                 <form action="/isercao-servico" method="post">
                     
                     <!--NOME-->
-                    <label for="nome-item">Nome do Produto</label>
-                    <input type="text" id="nomeitem" name="nomeitem" class="input" placeholder="Digite aqui o nome do iten.." value ="">
+                    <label for="nome-item">Nome do Serviço</label>
+                    <input type="text" id="nomeitem" name="nomeitem" class="input" placeholder="Digite aqui o nome do iten.." >
                     
                     <!--IMAGEM-->
-                    <label for="caminho-da-imagem">Caminho da Imagem do Produto</label><br>
+                    <label for="caminho-da-imagem">Caminho da Imagem do Serviço</label><br>
                     <!--<input type="file" id="imagemFalecido" name="imagemFalecido"><br>-->
-                    <input type="text" id="caminhodaimagem" name="caminhodaimagem" class="input" placeholder="Digite o caminh.." value="">
+                    <input type="text" id="caminhodaimagem" name="caminhodaimagem" class="input" placeholder="Digite o caminh.." >
                     
                     
                     
                     
                     
                     <label for="preco">Preço</label>
-                    <input type="int" id="preco" name="preco" class="input" placeholder="Digite aqui o Preco.." >
-
-                    <label for="quantida-de-disponivel">Quantidade Disponivel</label>
-                    <input type="int" id="quantidadedisponivel" name="quantidadedisponivel" class="input" placeholder="Digite aqui a Quantidade de itens disponveis" value="">
+                    <input type="int" id="preco" name="preco" class="campo-login" placeholder="Digite aqui o local do nascimento.."  style="color: white;">
+                    <br>
+                     <br>
+                    <label for="quantida-de-disponivel">Quantidade Disponivel:</label>
+                    <input type="int" id="quantidadedisponivel" name="quantidadedisponivel" class="campo-login" placeholder="Digite aqui o local do nascimento..">
                     <br>
 
                     
                            
                     <!--ENVIAR-->
-                    <a href="/create-servico"><button>Salvar</button></a>
+                    <div id="butomsalvar"><a href="/create-servico"><button >Salvar</button></a></div>
                 </form>
             </div>
         </div>
@@ -48,4 +52,7 @@
     </body>
 
 </html>
+
+      
+              
 
