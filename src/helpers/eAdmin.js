@@ -5,6 +5,6 @@ module.exports = {
         }
 
         req.flash("error_msg", "Você deve estar logado para acessar está página")
-        res.redirect("/inicio")
+        res.redirect("/")
     }
 }

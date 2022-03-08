@@ -778,12 +778,12 @@ app.post('/login', function(req,res, next){
 
 app.get('/logout', (req,res) =>{
     req.logout()
-    res.redirect('/inicio')
+    res.redirect('/')
 })
 
 //_______________
 //6 PAINEL DO ADM
-app.get('/inicio', (req,res)=>{
+app.get('/inicio', eAdmin, (req,res)=>{
     res.render("usuario/inicio",{
         title: "Dashboard - Funetech"
     })

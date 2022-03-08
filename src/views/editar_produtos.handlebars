@@ -30,22 +30,24 @@
                     
                     
                     <label for="preco">Preço</label>
-                    <input type="int" id="preco" name="preco" class="input" placeholder=style=color: white "Digite aqui o local do nascimento.." value="{{preco}}" style="color: white;">
-
-                    <label for="quantida-de-disponivel">Quantidade Disponivel</label>
-                    <input type="int" id="quantidadedisponivel" name="quantidadedisponivel" class="input" placeholder="Digite aqui o local do nascimento.." value="{{quantidade_disponivel}}">
+                    <input type="int" id="preco" name="preco" class="campo-login" placeholder="Digite aqui o preço." value="{{preco}}" style="color: white;">
                     <br>
+                     <br>
+                      
+                    <label for="quantida-de-disponivel">Quantidade Disponivel:</label>
+                    <input type="int" id="quantidadedisponivel" name="quantidadedisponivel" class="campo-login" placeholder="Digite a quantidade ..." value="{{quantidade_disponivel}}">
+                    
 
                     
                            
                     <!--ENVIAR-->
-                    <a href="/editar-produtos?id={{id}}"><button>Salvar</button></a>
+                    <div id="butomsalvar"><a href="/editar-produtos?id={{id}}"><button >Salvar</button></a></div>
                 </form>
             </div>
         </div>
 {{/each}}
-      </div>  
-    </body>
+</div>  
+</body>
 
 </html>
 
