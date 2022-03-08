@@ -32,6 +32,7 @@ body {
       color: #818181;
   }
   .texto-destaque p {
+  
       font-size: 15px;
       color: #9a9a9a;
   }
@@ -50,17 +51,19 @@ body {
       height: auto;
   }
   .bloco-imagem {
-      height: 300px;
+      height: 350px;
       border: 1px solid #c5c5c5;
-      padding-top: 15px;
-      padding-bottom: 15px;
-      margin-left: 10px;
+      display: inline-block;
+      padding-top: relative;
+      padding-bottom: relative;
+      margin-left: relative;
   }
   .bloco-imagem b, p {
       text-align: left;
   }
   .bloco-texto {
       margin-top: 3em;
+      display:relative;
   }
   
   h3 {
@@ -68,6 +71,7 @@ body {
   }
   
   .bloco-imagens-texto {
+      display:inline;
       background-color: #eeeeee;
   }
   .bloco-imagens-texto:before {
@@ -92,15 +96,17 @@ body {
       width: 25%;
       text-align: center;
   }
+
   .col-4 img {
   cursor: pointer;
    margin: 0 auto;
    padding-top: 1em;
    vertical-align: middle;
   }
+
   .col-4 img:hover {
       margin-top: 10px!important;
-      position: relative!important;
+      position:relative!important;
   }
   
   .bloco-logos {
@@ -110,5 +116,7 @@ body {
   .bloco-logos img {
       margin-top: 50px;
   }
-  
+p{
+    display:auto;
+}
  
