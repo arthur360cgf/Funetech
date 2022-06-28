@@ -797,6 +797,18 @@ app.get('/', (req,res)=>{
     })
 })
 
+// ROTAS API
+// RETORNA DADOS DE UM DETERMINADO MEMORIAL DE ACORDO COM O ID
+app.get('/api/memoriais/:id_memorial', (req,res)=>{
+
+    // BUSCA NO BD
+    const memorial = insercaoDB.insercao_memorial.findAll({
+        where: {id: req.params.id_memorial}
+    }).then((memorial)=>{
+        res.send(memorial[0]);
+    });
+})
+
 app.listen(porta, () => {
     console.log("Online na porta "+porta+"\n");
 })
