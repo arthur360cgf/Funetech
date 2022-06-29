@@ -819,7 +819,10 @@ app.get('/api/memoriais/:id_memorial', (req,res)=>{
 app.get('/api/todosOsMemoriais', (req,res)=>{
     insercaoDB.insercao_memorial.findAll().then((memorial)=>{
         if (memorial!=null){
-            res.send(memorial);
+            res.send({
+                "quantidade_de_memoriais": memorial.length,
+                "memoriais": memorial,
+            });
         }else{
             res.send({
                 "code":404,
