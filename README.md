@@ -8,4 +8,4 @@ O usuário do banco de dados deve ser:
 - Senha: 123456
 
 Para executar o projeto deve:
-- No terminal, ir até a pasta "src" e digitar "yarn memorial"
+- No terminal, digitar "npm run dev"

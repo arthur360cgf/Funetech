@@ -802,12 +802,32 @@ app.get('/', (req,res)=>{
 app.get('/api/memoriais/:id_memorial', (req,res)=>{
 
     // BUSCA NO BD
-    const memorial = insercaoDB.insercao_memorial.findAll({
+    insercaoDB.insercao_memorial.findAll({
         where: {id: req.params.id_memorial}
     }).then((memorial)=>{
-        res.send(memorial[0]);
+        if (memorial[0]!=null){
+            res.send(memorial[0]);
+        }else{
+            res.send({
+                "code":404,
+                "msg": "memorial não encontrado",
+            });
+        }
     });
 })
+
+app.get('/api/todosOsMemoriais', (req,res)=>{
+    insercaoDB.insercao_memorial.findAll().then((memorial)=>{
+        if (memorial!=null){
+            res.send(memorial);
+        }else{
+            res.send({
+                "code":404,
+                "msg": "Não há memoriais cadastrados",
+            });
+        }
+    });
+});
 
 app.listen(porta, () => {
     console.log("Online na porta "+porta+"\n");
