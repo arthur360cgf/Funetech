@@ -1,11 +1,11 @@
 # Funetech-ES-PIII
 
-O nome do banco de dados deve ser: 
+The database name needs to be: 
 - "funetech"
 
-O usuário do banco de dados deve ser:
+The database user name needs to be:
 - Nome de usuário: "usuario1"
 - Senha: 123456
 
-Para executar o projeto deve:
-- No terminal, digitar "npm run dev"
+To run the project you need:
+- Text in the terminal "npm run dev"
